@@ -1,0 +1,22 @@
+[
+  {
+    "name": "menu.aptitud",
+    "value": "#aptitudes"
+  },
+  {
+    "name": "menu.experience",
+    "value": "#experience"
+  },
+  {
+    "name": "menu.studies",
+    "value": "#study"
+  },
+  {
+    "name": "menu.concerns",
+    "value": "#i-like-it"
+  },
+  {
+    "name": "menu.contact",
+    "value": "#contact"
+  }
+]
