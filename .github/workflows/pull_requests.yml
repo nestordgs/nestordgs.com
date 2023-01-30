@@ -1,0 +1,25 @@
+name: Pull Requests Workflow
+
+on:
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  Testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18
+        working-directory: website
+        run: yarn install
+
+      - name: Run Tests
+        working-directory: website
+        run: |
+          yarn test
