@@ -11,11 +11,11 @@ jobs:
     steps:
       - name: Repo Checkout
         uses: actions/checkout@v3
-
-      - name: Install Dependencies
         uses: actions/setup-node@v3.6.0
         with:
           node-version: 18
+
+      - name: Install Dependencies
         working-directory: website
         run: yarn install
 
