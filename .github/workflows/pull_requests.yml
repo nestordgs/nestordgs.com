@@ -6,7 +6,27 @@ on:
       - "main"
 
 jobs:
-  Testing:
+  Testing Infra:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v3
+
+      - name: Node setup
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        working-directory: infra
+        run: yarn install
+
+      - name: Run Infra Tests
+        working-directory: infra
+        run: |
+          npm run test
+
+  Testing Website:
     runs-on: ubuntu-latest
     steps:
       - name: Repo Checkout
