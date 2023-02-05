@@ -6,7 +6,7 @@ on:
       - "main"
 
 jobs:
-  Testing Infra:
+  TestingInfra:
     runs-on: ubuntu-latest
     steps:
       - name: Repo Checkout
@@ -26,7 +26,7 @@ jobs:
         run: |
           npm run test
 
-  Testing Website:
+  TestingWebsite:
     runs-on: ubuntu-latest
     steps:
       - name: Repo Checkout
