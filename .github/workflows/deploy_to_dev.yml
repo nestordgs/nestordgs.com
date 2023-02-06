@@ -68,11 +68,13 @@ jobs:
         run: yarn
 
       - name: Build Website
+        working-directory: website
         run: |
           yarn build
 
       - name: Get Bucket name
         id: bucket-name
+        working-directory: website
         run: |
           BucketName=aws cloudformation describe-stacks \
             --stack-name InfraStack \
