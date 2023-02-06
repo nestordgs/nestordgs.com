@@ -1,0 +1,41 @@
+name: Deploy Dev
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  DeployInfra:
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v3
+
+      - name: Node setup
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18
+
+      - name: Upgrade AWS CDK
+        run: npm uninstall -g aws-cdk && npm i -g aws-cdk
+
+      - name: COnfigure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Install Dependencies
+        working-directory: infra
+        run: npm install
+
+      - name: Deploy to Environment
+        working-directory: infra
+        env:
+          PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
+          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+        run: |
+          cdk deploy --all --require-approval never
