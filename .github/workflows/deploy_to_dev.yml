@@ -85,5 +85,6 @@ jobs:
           echo "bucket=$BUCKETNAME" >> $GITHUB_OUTPUT
 
       - name: Upload files to bucket
+        working-directory: website
         run: |
           aws s3 sync ./build s3://${{ steps.bucket-name.outputs.bucket }}
