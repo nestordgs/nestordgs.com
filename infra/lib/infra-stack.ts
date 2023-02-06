@@ -44,6 +44,10 @@ export class InfraStack extends cdk.Stack {
           allowedMethods: AllowedMethods.ALLOW_ALL,
         }
       }
-    )
+    );
+
+    new cdk.CfnOutput(this, 'websiteBucketName', {
+      value: websiteBucket.bucketName
+    });
   }
 }

@@ -21,7 +21,7 @@ jobs:
       - name: Upgrade AWS CDK
         run: npm uninstall -g aws-cdk && npm i -g aws-cdk
 
-      - name: COnfigure AWS Credentials
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
@@ -39,3 +39,47 @@ jobs:
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
         run: |
           cdk deploy --all --require-approval never
+
+  CompileAndDeploy:
+    needs: [DeployInfra]
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v3
+
+      - name: Node setup
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18
+
+      - name: Upgrade AWS CDK
+        run: npm i -g aws-cdk
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Install Dependencies
+        working-directory: website
+        run: yarn
+
+      - name: Build Website
+        run: |
+          yarn build
+
+      - name: Get Bucket name
+        id: bucket-name
+        run: |
+          BucketName=aws cloudformation describe-stacks \
+            --stack-name InfraStack \
+            --query "Stacks[0].Outputs[?OutputKey==`websiteBucketName`].OutputValue" \
+            --output text
+          echo "BucketName=$BucketName" >> $GITHUB_OUTPUT
+
+      - name: Deploy to Environment
+        run: |
+          aws s3 sync ./build s3://${{ steps.bucket-name.outputs.BucketName }}
