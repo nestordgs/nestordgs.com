@@ -76,10 +76,10 @@ jobs:
         id: bucket-name
         working-directory: website
         run: |
-          aws cloudformation describe-stacks \
+          "aws cloudformation describe-stacks \
             --stack-name InfraStack \
             --query "Stacks[0].Outputs[?OutputKey=='websiteBucketName'].OutputValue" \
-            --output text >> $GITHUB_OUTPUT
+            --output text" >> $GITHUB_OUTPUT
 
       - name: Deploy to Environment
         run: |
