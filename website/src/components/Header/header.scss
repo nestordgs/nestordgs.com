@@ -10,5 +10,5 @@
 }
 
 .bg-menu-color-bar {
-  background-image: linear-gradient(to right, $gradient-1, $gradient-2, $gradient-3, $gradient-4, $gradient-5);
+  background-image: linear-gradient(to right, #{$gradient-1}, #{$gradient-2}, #{$gradient-3}, #{$gradient-4}, #{$gradient-5});
 }
