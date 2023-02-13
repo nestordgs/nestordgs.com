@@ -23,12 +23,16 @@ export const Header = () => {
 
   return (
     <nav
-      className="navbar navbar-expand-lg bg-body-tertiary"
+      className="navbar navbar-expand-lg bg-body-tertiary py-4"
       data-testid="header-page"
     >
       <div className="container">
         <a className="navbar-brand" href="/" data-testid="logo">
-          Nestor Gutierrez
+          <img
+            src="../assets/logo.png"
+            alt="Nestor Gutierrez"
+            className="img-fluid size-logo-menu"
+          />
         </a>
         <button
           className="navbar-toggler"
@@ -44,7 +48,7 @@ export const Header = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul
             data-testid="menu-component"
-            className="navbar-nav me-auto mb-2 mb-lg-0"
+            className="navbar-nav ms-auto me-5 mb-2 mb-lg-0"
           >
             {sections.map((section) => {
               return (
@@ -73,6 +77,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
+      <span className="menu-color-bar bg-menu-color-bar" />
     </nav>
   );
 };

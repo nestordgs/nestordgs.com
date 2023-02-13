@@ -3,8 +3,9 @@ import i18n from "i18next";
 import ReactDOM from "react-dom/client";
 import { initReactI18next } from "react-i18next";
 
-import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle";
+import "bootstrap/scss/bootstrap.scss";
+import "./styles/index.scss";
 
 import App from "./App";
 import english from "./translations/en.json";
