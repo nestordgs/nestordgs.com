@@ -72,8 +72,8 @@ jobs:
         run: |
           yarn build
 
-      - name: Get Bucket name
-        id: bucket-name
+      - name: Get Bucket name And CloudFront Dist Id
+        id: resources-values
         working-directory: website
         run: |
           BUCKETNAME=$(aws cloudformation describe-stacks \
@@ -82,9 +82,23 @@ jobs:
             --output text \
             --region ${{ secrets.AWS_REGION }})
 
+          CLOUDFRONTID=$(aws cloudformation describe-stacks \
+            --stack-name InfraStack \
+            --query 'Stacks[0].Outputs[?OutputKey==`cloudFrontDistId`].OutputValue' \
+            --output text \
+            --region ${{ secrets.AWS_REGION }})
+
           echo "bucket=$BUCKETNAME" >> $GITHUB_OUTPUT
+          echo "cloudfront=$CLOUDFRONTID" >> $GITHUB_OUTPUT
 
       - name: Upload files to bucket
         working-directory: website
         run: |
-          aws s3 sync ./build s3://${{ steps.bucket-name.outputs.bucket }}
+          aws s3 sync ./build s3://${{ steps.resources-values.outputs.bucket }}
+
+      - name: Invalidate Cloudfront
+        working-directory: website
+        run: |
+          aws cloudfront create-invalidation \
+          --distribution-id ${{ steps.resources-values.outputs.cloudfront }} \
+          --paths "/index.html"

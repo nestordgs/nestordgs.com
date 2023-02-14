@@ -49,5 +49,8 @@ export class InfraStack extends cdk.Stack {
     new cdk.CfnOutput(this, 'websiteBucketName', {
       value: websiteBucket.bucketName
     });
+    new cdk.CfnOutput(this, 'cloudFrontDistId', {
+      value: cloudfrontDistri.distributionId
+    });
   }
 }
