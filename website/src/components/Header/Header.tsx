@@ -4,6 +4,7 @@ import React, { useContext, useEffect } from "react";
 
 import sections from "./sections.json";
 import { TranslationConext } from "../../translations";
+import { SwitchLanguage } from "../SwitchLanguage/SwitchLanguage";
 
 export const Header = () => {
   const { language, changeLanguage } = useContext(TranslationConext);
@@ -48,7 +49,7 @@ export const Header = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul
             data-testid="menu-component"
-            className="navbar-nav ms-auto me-5 mb-2 mb-lg-0"
+            className="navbar-nav ms-auto me-4 mb-2 mb-lg-0"
           >
             {sections.map((section) => {
               return (
@@ -65,15 +66,11 @@ export const Header = () => {
             })}
           </ul>
           <div className="form-check form-switch">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckChecked"
-              onChange={handleLanguage}
-              checked={language === "en" ? true : false}
+            <SwitchLanguage
+              label={`${language.toUpperCase()}`}
+              isChecked={language === "en" ? true : false}
+              onClick={handleLanguage}
             />
-            <label className="form-check-label">{t("language")}</label>
           </div>
         </div>
       </div>

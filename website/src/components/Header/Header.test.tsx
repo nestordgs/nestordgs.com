@@ -1,9 +1,14 @@
 import { render, screen } from "@testing-library/react";
+import { TranslationConext } from "../../translations";
 import { Header } from "./Header";
 
 describe("<Header Component />", () => {
   beforeEach(() => {
-    render(<Header />);
+    render(
+      <TranslationConext.Provider value={{ language: "es" }}>
+        <Header />
+      </TranslationConext.Provider>
+    );
   });
 
   it("Should Render Header", () => {
