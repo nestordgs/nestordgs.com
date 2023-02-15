@@ -5,12 +5,15 @@
   .language-switch {
     appearance: none;
     height: 24px;
-    background: linear-gradient(to right, #{$gradient-1}, #{$gradient-2}, #{$gradient-3}, #{$gradient-4}, #{$gradient-5});
+    background: linear-gradient(to right, #{$gradient-1}, #{$gradient-2}, #{$gradient-3}, #{$gradient-4}, #{$gradient-5}) !important;
     position: relative;
     border-radius: 25px;
     outline: none;
     border: none;
     box-shadow: none;
+    &:focus {
+      box-shadow: none;
+    }
     &::before {
       content: "";
       background: #{$black-nestordgs};

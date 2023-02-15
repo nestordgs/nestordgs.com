@@ -23,10 +23,7 @@ export const Header = () => {
   }, [language]);
 
   return (
-    <nav
-      className="navbar navbar-expand-lg bg-body-tertiary py-4"
-      data-testid="header-page"
-    >
+    <nav className="navbar navbar-expand-lg py-4" data-testid="header-page">
       <div className="container">
         <a className="navbar-brand" href="/" data-testid="logo">
           <img
