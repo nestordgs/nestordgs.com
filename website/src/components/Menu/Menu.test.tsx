@@ -1,17 +1,17 @@
 import { render, screen } from "@testing-library/react";
 import { TranslationConext } from "../../translations";
-import { Header } from "./Header";
+import { Menu } from "./Menu";
 
-describe("<Header Component />", () => {
+describe("<Menu Component />", () => {
   beforeEach(() => {
     render(
       <TranslationConext.Provider value={{ language: "es" }}>
-        <Header />
+        <Menu />
       </TranslationConext.Provider>
     );
   });
 
-  it("Should Render Header", () => {
+  it("Should Render Menu", () => {
     const headerComponent = screen.getByTestId("header-page");
 
     expect(headerComponent).toBeInTheDocument();

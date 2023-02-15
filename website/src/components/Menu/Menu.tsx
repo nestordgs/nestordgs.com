@@ -6,7 +6,7 @@ import sections from "./sections.json";
 import { TranslationConext } from "../../translations";
 import { SwitchLanguage } from "../SwitchLanguage/SwitchLanguage";
 
-export const Header = () => {
+export const Menu = () => {
   const { language, changeLanguage } = useContext(TranslationConext);
   const { t } = useTranslation();
 
