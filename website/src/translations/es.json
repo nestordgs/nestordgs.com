@@ -7,6 +7,10 @@
       "studies": "Estudios",
       "concerns": "Intereses",
       "contact": "Contacto"
+    },
+    "aptitudes": {
+      "im": "Soy Nestor Gutiérrez",
+      "description": "Soy un Desarrollador Full Stack con una afición para crear código para resolver problemas. Me apasiona la nube y crear software que los usuarios disfruten mucho. Déjame escuchar música y trataré de crear el mejor código que pueda."
     }
   }
 }

@@ -1,31 +1,13 @@
 import React from "react";
 import { Menu } from "./components/Menu/Menu";
 import { TranslationProvider } from "./translations";
-import Grid from "animated-grid-lines";
-import {
-  gradientFive,
-  gradientFour,
-  gradientOne,
-  gradientThree,
-  gradientTwo,
-  gridHeaderColor,
-} from "./constants";
+import { Header } from "./components/Header/Header";
 
 function App() {
-  const grandients: string[] = [
-    gradientOne,
-    gradientTwo,
-    gradientThree,
-    gradientFour,
-    gradientFive,
-  ];
-
   return (
     <TranslationProvider>
       <Menu />
-      <div style={{ height: 648 }}>
-        <Grid colors={grandients} gridColor={gridHeaderColor} />
-      </div>
+      <Header />
     </TranslationProvider>
   );
 }

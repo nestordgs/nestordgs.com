@@ -1,0 +1,47 @@
+.container-header {
+  height: 648px;
+  position: relative;
+  & > .header {
+    &-background {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      height: 100%;
+    }
+    &-description {
+      position: relative;
+      & > .row {
+        @include media-breakpoint-up('md') {
+          height: 436px;
+        }
+        position: relative;
+
+        & > .bg-letter-n {
+          background-image: url('../../../public/assets/bg-letter-n.png');
+          background-repeat: no-repeat;
+          background-size: contain;
+          & > svg {
+            height: 100%;
+          }
+        }
+
+        & > .col-description {
+          @include media-breakpoint-up('md') {
+            padding: 100px;
+          }
+        }
+      }
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #{$header-background};
+        opacity: 0.75;
+        position: absolute;
+        @include media-breakpoint-down('sm') {
+          width: 97%;
+        }
+      }
+    }
+  }
+}
