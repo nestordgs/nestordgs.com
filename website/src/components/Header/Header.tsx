@@ -27,14 +27,11 @@ export const Header = () => {
         <Grid colors={backgroundColors} gridColor={gridHeaderColor} />
       </div>
       <div className="container header-description">
-        <div className="row">
-          <div className="col-12 col-sm-3 text-center bg-letter-n">
+        <div className="row row-description">
+          <div className="d-none d-md-block col-sm-4 col-xl-3 text-center bg-letter-n">
             <LetterN />
           </div>
-          <div
-            className="col-12 col-sm-9 container col-description"
-            // style={{ padding: 100 }}
-          >
+          <div className="col-12 col-sm-7 col-md-8 col-xl-9 container col-description d-flex flex-column align-items-center align-self-center">
             <p className="fs-1 text-white">{t("aptitudes.im")}</p>
             <p className="fs-4 text-white">{t("aptitudes.description")}</p>
           </div>
