@@ -42,14 +42,14 @@
         position: relative;
 
         @include media-breakpoint-up('md') {
-          height: $max-height-header;
+          height: #{$max-height-header};
         }
 
         &>.bg-letter-n {
           background-image: url('../../../public/assets/bg-letter-n.png');
           background-repeat: no-repeat;
           background-size: cover;
-          max-height: $max-height-header;
+          max-height: #{$max-height-header};
 
           &>svg {
             height: 100%;

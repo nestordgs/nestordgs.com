@@ -1,12 +1,14 @@
 .letter-n {
   width: 150px;
 }
+
 .cls-1 {
   stroke: url(#Degradado_sin_nombre_4-2);
 }
 
-.cls-1, .cls-2 {
-  fill: #1a1a1a;
+.cls-1,
+.cls-2 {
+  fill: #{$header-background};
   stroke-miterlimit: 10;
   stroke-width: 4px;
 }
