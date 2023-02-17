@@ -5,6 +5,7 @@ import "./utils.scss";
 export const LetterN = () => {
   return (
     <svg
+      role="letter-n"
       className="letter-n"
       id="Layer_2"
       data-name="Layer 2"

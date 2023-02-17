@@ -24,7 +24,12 @@ export const Header = () => {
   return (
     <div className="d-flex align-items-center justify-content-between container-header">
       <div className="header-background">
-        <Grid colors={backgroundColors} gridColor={gridHeaderColor} />
+        <Grid
+          colors={backgroundColors}
+          gridColor={gridHeaderColor}
+          className="d-none d-md-block"
+          data-testid="canvas-grid-bg"
+        />
       </div>
       <div className="container header-description">
         <div className="row row-description">

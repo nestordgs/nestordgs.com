@@ -8,6 +8,21 @@
       position: absolute;
       left: 0;
       height: 100%;
+
+      @include media-breakpoint-down('md') {
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('../../../public/assets/bg-grid.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+          z-index: -1;
+        }
+      }
     }
 
     &-description {
