@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./utils.scss";
-
 export const LetterN = () => {
   return (
     <svg
