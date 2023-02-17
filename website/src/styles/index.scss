@@ -1,5 +1,6 @@
 @import "variables";
-@import "../components/Header/header.scss";
-@import "../components/SwitchLanguage/switch-language.scss";
-
 @import "bootstrap";
+
+@import "../components/Menu/menu.scss";
+@import "../components/SwitchLanguage/switch-language.scss";
+@import "../components/Header/header.scss";

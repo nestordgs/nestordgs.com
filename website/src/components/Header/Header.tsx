@@ -1,77 +1,47 @@
-import i18n from "i18next";
+import React from "react";
+import Grid from "animated-grid-lines";
+import {
+  gradientFive,
+  gradientFour,
+  gradientOne,
+  gradientThree,
+  gradientTwo,
+  gridHeaderColor,
+} from "../../constants";
+import { LetterN } from "../utils/LetterN";
 import { useTranslation } from "react-i18next";
-import React, { useContext, useEffect } from "react";
-
-import sections from "./sections.json";
-import { TranslationConext } from "../../translations";
-import { SwitchLanguage } from "../SwitchLanguage/SwitchLanguage";
 
 export const Header = () => {
-  const { language, changeLanguage } = useContext(TranslationConext);
   const { t } = useTranslation();
-
-  const handleLanguage = (e: any) => {
-    if (e.target.checked) {
-      changeLanguage("en");
-    } else {
-      changeLanguage("es");
-    }
-  };
-
-  useEffect(() => {
-    i18n.changeLanguage(language);
-  }, [language]);
+  const backgroundColors: string[] = [
+    gradientOne,
+    gradientTwo,
+    gradientThree,
+    gradientFour,
+    gradientFive,
+  ];
 
   return (
-    <nav className="navbar navbar-expand-lg py-4" data-testid="header-page">
-      <div className="container">
-        <a className="navbar-brand" href="/" data-testid="logo">
-          <img
-            src="../assets/logo.png"
-            alt="Nestor Gutierrez"
-            className="img-fluid size-logo-menu"
-          />
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul
-            data-testid="menu-component"
-            className="navbar-nav ms-auto me-4 mb-2 mb-lg-0"
-          >
-            {sections.map((section) => {
-              return (
-                <li className="nav-item" key={`section-${section.name}`}>
-                  <a
-                    className="nav-link active"
-                    aria-current="page"
-                    href={section.value}
-                  >
-                    {t(`${section.name}`)}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="form-check form-switch">
-            <SwitchLanguage
-              label={`${language.toUpperCase()}`}
-              isChecked={language === "en" ? true : false}
-              onClick={handleLanguage}
-            />
+    <div className="d-flex align-items-center justify-content-between container-header">
+      <div className="header-background">
+        <Grid
+          colors={backgroundColors}
+          gridColor={gridHeaderColor}
+          className="d-none d-md-block"
+          data-testid="canvas-grid-bg"
+        />
+      </div>
+      <div className="container header-description">
+        <div className="row row-description">
+          <div className="d-none d-md-block col-sm-4 col-xl-3 text-center bg-letter-n">
+            <LetterN />
+          </div>
+          <div className="col-12 col-sm-7 col-md-8 col-xl-9 container col-description d-flex flex-column align-items-center align-self-center">
+            <p className="fs-1 text-white">{t("aptitudes.im")}</p>
+            <p className="fs-4 text-white">{t("aptitudes.description")}</p>
           </div>
         </div>
       </div>
-      <span className="menu-color-bar bg-menu-color-bar" />
-    </nav>
+    </div>
   );
 };

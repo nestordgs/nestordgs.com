@@ -1,14 +1,79 @@
-.size-logo-menu {
-  max-height: 15px;
-}
+.container-header {
+  height: 648px;
+  position: relative;
 
-.menu-color-bar {
-  position: absolute;
-  bottom: -4px;
-  height: 4px;
-  width: 100%;
-}
+  &>.header {
+    &-background {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      height: 100%;
 
-.bg-menu-color-bar {
-  background-image: linear-gradient(to right, #{$gradient-1}, #{$gradient-2}, #{$gradient-3}, #{$gradient-4}, #{$gradient-5});
+      @include media-breakpoint-down('md') {
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('../../../public/assets/bg-grid.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+          z-index: -1;
+        }
+      }
+    }
+
+    &-description {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -.09em;
+        border: 5px solid;
+        border-color: #{$gradient-1};
+        filter: blur(2.5em);
+        z-index: -1;
+      }
+
+      &>.row-description {
+        position: relative;
+
+        @include media-breakpoint-up('md') {
+          height: #{$max-height-header};
+        }
+
+        &>.bg-letter-n {
+          background-image: url('../../../public/assets/bg-letter-n.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+          max-height: #{$max-height-header};
+
+          &>svg {
+            height: 100%;
+          }
+        }
+
+        &>.col-description {
+          @extend .py-5;
+
+          @include media-breakpoint-up('md') {
+            padding: 100px;
+          }
+        }
+      }
+
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #{$header-background};
+        opacity: 0.75;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
 }
