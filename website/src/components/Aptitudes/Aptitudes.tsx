@@ -78,6 +78,7 @@ export const Aptitudes = () => {
                     className={`card-img-top img-fluid rounded-start aptitude-img ${
                       aptitude.colorClass ? aptitude.colorClass : ""
                     }`}
+                    alt={aptitude.title}
                   />
                 </div>
                 <div className="col d-flex align-items-center p-3 justify-content-center">
