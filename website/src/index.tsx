@@ -27,6 +27,17 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
+window.onblur = function () {
+  document.title = "Bye!, hope to see you soon";
+};
+
+window.onfocus = function () {
+  document.title = "Hi again!";
+  setTimeout(() => {
+    document.title = "I'm nestordgs";
+  }, 5000);
+};
+
 root.render(
   <React.StrictMode>
     <App />
