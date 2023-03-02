@@ -7,27 +7,7 @@
       left: 0;
       bottom: 0;
       height: 4px;
-      width: 23%;
-
-      @include media-breakpoint-up('sm') {
-        width: 25%;
-      }
-
-      @include media-breakpoint-up('md') {
-        width: 20%;
-      }
-
-      @include media-breakpoint-up('lg') {
-        width: 16%;
-      }
-
-      @include media-breakpoint-up('xl') {
-        width: 13%;
-      }
-
-      @include media-breakpoint-up('xxl') {
-        width: 11%;
-      }
+      width: 100%;
     }
   }
 
@@ -43,7 +23,7 @@
     }
 
     .aptitude {
-      border: #{$spacer/12} solid #{$gray-800};
+      border: #{calc($spacer/12)} solid #{$gray-800};
       height: 150px;
       transition: all ease-in-out 0.2s;
 

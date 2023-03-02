@@ -1,12 +1,8 @@
 import React from "react";
+import { Aptitude } from "./Aptitude";
+import { IAptitude } from "./interfaces";
 
-interface IAptitude {
-  title: string;
-  imageUrl: string;
-  colorClass?: string;
-}
-
-export const Aptitudes = () => {
+export const Aptitudes: React.FC = () => {
   const listAptitudes: IAptitude[] = [
     {
       title: "Amazon Web Services (AWS)",
@@ -62,32 +58,12 @@ export const Aptitudes = () => {
   return (
     <>
       <div className="container py-5">
-        <h1 className="aptitudes-title pb-2">
+        <h1 className="aptitudes-title pb-2 d-inline-block">
           Aptitudes .<span className="aptitudes-title-line bg-menu-color-bar" />
         </h1>
         <div className="d-grid gap-3 aptitudes-grid">
           {listAptitudes.map((aptitude: IAptitude, index: number) => {
-            return (
-              <div
-                className="p-4l aptitude d-flex w-100"
-                key={`aptitude-${index}`}
-              >
-                <div className="col-5 aptitude-bg text-center d-flex align-items-center justify-content-center">
-                  <img
-                    src={aptitude.imageUrl}
-                    className={`card-img-top img-fluid rounded-start aptitude-img ${
-                      aptitude.colorClass ? aptitude.colorClass : ""
-                    }`}
-                    alt={aptitude.title}
-                  />
-                </div>
-                <div className="col d-flex align-items-center p-3 justify-content-center">
-                  <p className="text-center text-white fs-4">
-                    {aptitude.title}
-                  </p>
-                </div>
-              </div>
-            );
+            return <Aptitude {...aptitude} key={`aptitude-${index}`} />;
           })}
         </div>
       </div>
