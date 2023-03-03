@@ -2,6 +2,7 @@
   .form-check-input.language-switch {
     width: 4rem;
   }
+
   .language-switch {
     appearance: none;
     height: 24px;
@@ -11,34 +12,39 @@
     outline: none;
     border: none;
     box-shadow: none;
+
     &:focus {
       box-shadow: none;
     }
+
     &::before {
       content: "";
       background: #{$black-nestordgs};
-      height: 1.7rem;
-      width: 1.7rem;
+      height: 1.2rem;
+      width: 1.2rem;
       position: absolute;
       border-radius: 50%;
       top: 9%;
-      right: 4%;
+      right: 7%;
       transition: all .5s;
       z-index: 2;
     }
+
     &::after {
       content: attr(data-language);
       position: absolute;
       color: #{$black-nestordgs};
-      top: 15%;
+      top: 0%;
       left: 15%;
       font-weight: bold;
       transition: all .5s;
       z-index: 1;
     }
+
     &:checked::before {
-      right: 53%;
+      right: 64%;
     }
+
     &:checked::after {
       left: 53%;
     }

@@ -16,3 +16,22 @@
 .cls-2 {
   stroke: url(#Degradado_sin_nombre_4);
 }
+
+.bg-menu-color-bar {
+  background-image: linear-gradient(to right, #{$gradient-1}, #{$gradient-2}, #{$gradient-3}, #{$gradient-4}, #{$gradient-5});
+}
+
+.aptitudes,
+.experiences {
+  &-title {
+    position: relative;
+
+    &-line {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 4px;
+      width: 100%;
+    }
+  }
+}

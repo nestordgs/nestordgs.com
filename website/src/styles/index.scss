@@ -1,8 +1,9 @@
+@import "mixins/mixins";
 @import "variables";
 @import "bootstrap";
 
-@import "../components/Aptitudes/aptitudes.scss";
-@import "../components/Menu/menu.scss";
-@import "../components/SwitchLanguage/switch-language.scss";
-@import "../components/Header/header.scss";
-@import "../components/utils/utils.scss";
+@import "../components/Aptitudes/aptitudes";
+@import "../components/Menu/menu";
+@import "../components/SwitchLanguage/switch-language";
+@import "../components/Header/header";
+@import "../components/utils/utils";

@@ -1,5 +1,5 @@
 .size-logo-menu {
-  max-height: 15px;
+  max-height: 25px;
 }
 
 .menu-color-bar {
@@ -7,8 +7,4 @@
   bottom: 0px;
   height: 4px;
   width: 100%;
-}
-
-.bg-menu-color-bar {
-  background-image: linear-gradient(to right, #{$gradient-1}, #{$gradient-2}, #{$gradient-3}, #{$gradient-4}, #{$gradient-5});
 }

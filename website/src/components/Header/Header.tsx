@@ -36,9 +36,9 @@ export const Header = () => {
           <div className="d-none d-md-block col-sm-4 col-xl-3 text-center bg-letter-n">
             <LetterN />
           </div>
-          <div className="col-12 col-sm-7 col-md-8 col-xl-9 container col-description d-flex flex-column align-items-center align-self-center">
-            <p className="fs-1 text-white">{t("aptitudes.im")}</p>
-            <p className="fs-4 text-white">{t("aptitudes.description")}</p>
+          <div className="col-12 col-sm-7 col-md-8 col-xl-9 container col-description d-flex flex-column align-items-left align-self-center">
+            <p className="fs-2 text-white">{t("aptitudes.im")}</p>
+            <p className="fs-5 text-white">{t("aptitudes.description")}</p>
           </div>
         </div>
       </div>
