@@ -18,7 +18,7 @@ export const Aptitude: React.FC<IAptitude> = ({
         />
       </div>
       <div className="col d-flex align-items-center p-3 justify-content-center">
-        <p className="text-center text-white fs-4">{title}</p>
+        <p className="text-center text-white fs-5">{title}</p>
       </div>
     </div>
   );

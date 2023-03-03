@@ -1,0 +1,5 @@
+@mixin dynamic-border-color-blur($colors) {
+  $hover-color: nth($colors, random(length($colors)));
+  border: 1px solid $hover-color !important;
+  border-color: $hover-color;
+}

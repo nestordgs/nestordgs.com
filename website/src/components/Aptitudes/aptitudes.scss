@@ -1,16 +1,4 @@
 .aptitudes {
-  &-title {
-    position: relative;
-
-    &-line {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 4px;
-      width: 100%;
-    }
-  }
-
   &-grid {
     justify-content: center;
 
@@ -26,10 +14,19 @@
       border: #{calc($spacer/12)} solid #{$gray-800};
       height: 150px;
       transition: all ease-in-out 0.2s;
+      position: relative;
 
       &:hover {
         cursor: pointer;
-        border-color: #{$white};
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: -.09em;
+          border: 1px solid;
+          @include dynamic-border-color-blur($gradients-colors);
+          filter: blur(1em);
+        }
       }
 
       &-bg {
@@ -53,7 +50,6 @@
         @include media-breakpoint-up('md') {
           aspect-ratio: 7/6;
         }
-
 
         @include media-breakpoint-up('md') {
           max-width: #{$spacer*8};
