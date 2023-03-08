@@ -1,0 +1,119 @@
+.experiences {
+  &-tabs {
+    overflow-x: auto;
+    gap: 5px;
+
+    @include media-breakpoint-up('lg') {
+      justify-content: space-evenly;
+    }
+
+    & .experience {
+      min-width: 200px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.active {
+        transition: all ease-in-out 0.2s;
+        @include dynamic-border-color-blur($gradients-colors);
+      }
+
+      &>.btn {
+        border: 0px !important;
+      }
+    }
+
+  }
+}
+
+.experience-content {
+  & .d-flex {
+    @include media-breakpoint-up('lg') {
+      min-height: 200px;
+    }
+  }
+
+  white-space: pre-line;
+
+  &-title {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../../public/assets/aptitudes/bg-aptitudes.png");
+
+    &>.title {
+      @extend .m-3;
+
+      @include media-breakpoint-up('lg') {
+        @include font-size(calc($font-size-base * 3.5));
+        margin: calc($spacer * 3.5);
+      }
+    }
+  }
+
+  &-description {
+    @extend .px-3;
+    // @extend .mx-3;
+    // @include media-breakpoint-up('lg') {
+    //   justify-content: space-evenly;
+    // }
+  }
+}
+
+
+
+
+
+
+
+
+
+.experience-cls-1 {
+  fill: #{$header-background};
+}
+
+.experience-cls-2 {
+  fill: url(#Degradado_sin_nombre_4-2);
+}
+
+.experience-cls-3 {
+  fill: url(#Degradado_sin_nombre_4-3);
+}
+
+.experience-cls-4 {
+  fill: url(#Degradado_sin_nombre_4-4);
+}
+
+.experience-cls-5 {
+  mix-blend-mode: soft-light;
+}
+
+.experience-cls-5,
+.experience-title {
+  fill: #{$white};
+}
+
+.experience-title {
+  font-family: RobotoMono-Bold, 'Roboto Mono';
+  @include font-size(calc($font-size-base * 4.5));
+}
+
+.experience-cls-7 {
+  opacity: .5;
+}
+
+.experience-cls-8 {
+  fill: url(#Degradado_sin_nombre_4);
+}
+
+.stop-one {
+  stop-color: #6cf !important;
+}
+
+.stop-two {
+  stop-color: #{$gradient-5} !important;
+}
+
+// .cls-9 {
+//   isolation: isolate;
+// }
