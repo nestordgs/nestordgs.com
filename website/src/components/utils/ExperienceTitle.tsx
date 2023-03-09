@@ -4,6 +4,7 @@ import { IExperienceTitleProps } from "./interfaces";
 export const ExperienceTitle: React.FC<IExperienceTitleProps> = ({
   title,
   numberOfWhiteSpaces,
+  isActual = false,
 }) => {
   const renderTitleByNumberOfWhiteSpaces = (
     numberOfWhiteSpaces: number,
@@ -13,10 +14,10 @@ export const ExperienceTitle: React.FC<IExperienceTitleProps> = ({
     if (numberOfWhiteSpaces === 2) {
       return (
         <text className="experience-title" transform="translate(44.57 188.83)">
-          <tspan x="0" y="0">
+          <tspan x="0" y="0" xlinkHref="#path">
             {splitTitle[0]}
           </tspan>
-          <tspan x="0" y="80.75">
+          <tspan x="0" y="80.75" xlinkHref="#path">
             {splitTitle[1]}.
           </tspan>
         </text>
@@ -42,6 +43,7 @@ export const ExperienceTitle: React.FC<IExperienceTitleProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 445 419"
+      className={`${isActual ? "current-experience" : ""}`}
     >
       <defs>
         <linearGradient
@@ -54,9 +56,7 @@ export const ExperienceTitle: React.FC<IExperienceTitleProps> = ({
           gradientUnits="userSpaceOnUse"
         >
           <stop className="stop-one" offset="0" />
-          {/* <stop className="stop-one" offset="0" stopColor="#6cf" /> */}
           <stop className="stop-two" offset="1" />
-          {/* <stop className="stop-two" offset="1" stopColor="#63ff9f" /> */}
         </linearGradient>
         <linearGradient
           id="Degradado_sin_nombre_4-2"
@@ -93,7 +93,7 @@ export const ExperienceTitle: React.FC<IExperienceTitleProps> = ({
               <rect className="experience-cls-1" width="445" height="419" />
               {renderTitleByNumberOfWhiteSpaces(numberOfWhiteSpaces, title)}
               <g>
-                <g>
+                <g className="gray-squares">
                   <g className="experience-cls-7">
                     <rect
                       className="experience-cls-5"
@@ -147,7 +147,7 @@ export const ExperienceTitle: React.FC<IExperienceTitleProps> = ({
                     />
                   </g>
                 </g>
-                <g>
+                <g className="up-square reverse">
                   <path
                     className="experience-cls-8"
                     d="m370.2,342.07c6.07,5.52,12.05,11.13,17.93,16.83,5.91,5.68,11.73,11.45,17.54,17.23,5.78,5.81,11.55,11.63,17.23,17.54,5.7,5.89,11.31,11.87,16.83,17.93-6.07-5.52-12.05-11.13-17.93-16.83-5.91-5.68-11.73-11.45-17.54-17.23-5.78-5.81-11.54-11.63-17.23-17.54-5.7-5.89-11.31-11.86-16.83-17.93Z"
@@ -157,7 +157,7 @@ export const ExperienceTitle: React.FC<IExperienceTitleProps> = ({
                     d="m325.7,325.38c6.07,5.52,12.05,11.13,17.93,16.83,5.91,5.68,11.73,11.45,17.54,17.23,5.78,5.81,11.55,11.63,17.23,17.54,5.7,5.89,11.31,11.87,16.83,17.93-6.07-5.52-12.05-11.13-17.93-16.83-5.91-5.68-11.73-11.45-17.54-17.23-5.78-5.81-11.54-11.63-17.23-17.54-5.7-5.89-11.31-11.86-16.83-17.93Z"
                   />
                 </g>
-                <g>
+                <g className="down-square">
                   <path
                     className="experience-cls-3"
                     d="m70.68,70.09c-6.07-5.52-12.05-11.13-17.93-16.83-5.91-5.68-11.73-11.45-17.54-17.23-5.78-5.81-11.55-11.63-17.23-17.54C12.28,12.6,6.67,6.62,1.15.56c6.07,5.52,12.05,11.13,17.93,16.83,5.91,5.68,11.73,11.45,17.54,17.23,5.78,5.81,11.54,11.63,17.23,17.54,5.7,5.89,11.31,11.86,16.83,17.93Z"

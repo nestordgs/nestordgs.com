@@ -129,10 +129,19 @@ export const Experiences = () => {
                     <ExperienceTitle
                       title={title}
                       numberOfWhiteSpaces={title.split(" ").length}
+                      isActual={!index}
                     />
                   </div>
-                  <div className="col-md-8 d-flex align-items-center">
-                    <div className="card-body">
+                  <div
+                    className="col-md-8 d-flex align-items-center bg-grid"
+                    style={{ position: "relative" }}
+                  >
+                    <div
+                      className="card-body"
+                      style={{
+                        zIndex: 1,
+                      }}
+                    >
                       <h2 className="card-title fs-1 text-white">{company}</h2>
                       <p className="card-text text-white text-keep-white-space">
                         {description}
