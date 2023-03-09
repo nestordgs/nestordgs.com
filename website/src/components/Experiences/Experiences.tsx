@@ -7,6 +7,7 @@ import "dayjs/locale/es";
 import "dayjs/locale/en";
 import { TranslationConext } from "../../translations";
 import { ExperienceTitle } from "../utils/ExperienceTitle";
+import { ExperienceDescription } from "./ExperienceDescription";
 
 dayjs.locale("es");
 
@@ -75,14 +76,18 @@ export const Experiences = () => {
 
   return (
     <div className="container py-5">
-      <h2 className="experiences-title pb-2 d-inline-block mb-5">
-        {t("experiences.title")} .
+      <h2
+        className="experiences-title pb-2 d-inline-block mb-5"
+        data-testid="experiences-title"
+      >
+        {t("experiences.title")}.
         <span className="experiences-title-line bg-menu-color-bar" />
       </h2>
       <ul
         className="nav nav-pills mb-3 nav-justifiedd flex-nowrap experiences-tabs pb-3"
-        id="pills-tab"
+        id="experience-tab"
         role="tablist"
+        data-testid="experiences-list-tabs"
       >
         {experiences.map((experience: IExperience, index: number) => {
           const { dateFrom, dateTo, company } = experience;
@@ -93,14 +98,14 @@ export const Experiences = () => {
               }`}
               key={`experience-${index}`}
               data-bs-toggle="pill"
-              data-bs-target={`#pills-${company.replace(" ", "-")}`}
+              data-bs-target={`#experience-${company.replace(" ", "-")}`}
             >
               <button
                 className="btn btn-primary text-capitalize px-0 text-white"
-                id="pills-profile-tab"
+                id="experience-profile-tab"
                 type="button"
                 role="tab"
-                aria-controls="pills-profile"
+                aria-controls="experience-profile"
                 aria-selected="false"
               >
                 {dayjs(dateFrom).format("MMM YYYY")} -{" "}
@@ -110,7 +115,7 @@ export const Experiences = () => {
           );
         })}
       </ul>
-      <div className="tab-content" id="pills-tabContent">
+      <div className="tab-content" id="experiences-tabContent">
         {experiences.map((experience: IExperience, index: number) => {
           const { title, company, description } = experience;
           return (
@@ -118,10 +123,10 @@ export const Experiences = () => {
               className={`tab-pane fade experience-content show ${
                 index === 0 && "active"
               }`}
-              id={`pills-${company.replace(" ", "-")}`}
+              id={`experience-${company.replace(" ", "-")}`}
               role="tabpanel"
               key={`experience-content-${index}`}
-              aria-labelledby={`pills-${company.replace(" ", "-")}-tab"`}
+              aria-labelledby={`experience-${company.replace(" ", "-")}-tab"`}
             >
               <div className="card mb-3">
                 <div className="row g-0">
@@ -132,22 +137,10 @@ export const Experiences = () => {
                       isActual={!index}
                     />
                   </div>
-                  <div
-                    className="col-md-8 d-flex align-items-center bg-grid"
-                    style={{ position: "relative" }}
-                  >
-                    <div
-                      className="card-body"
-                      style={{
-                        zIndex: 1,
-                      }}
-                    >
-                      <h2 className="card-title fs-1 text-white">{company}</h2>
-                      <p className="card-text text-white text-keep-white-space">
-                        {description}
-                      </p>
-                    </div>
-                  </div>
+                  <ExperienceDescription
+                    company={company}
+                    description={description}
+                  />
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@
     overflow-x: auto;
     gap: 5px;
 
-    @include media-breakpoint-up('lg') {
+    @include media-breakpoint-up('xxl') {
       justify-content: space-evenly;
     }
 
@@ -109,6 +109,7 @@
 
 
 .bg-grid {
+  position: relative;
 
   &::before {
     content: "";
@@ -120,6 +121,10 @@
     background-image: url('../../../public/assets/bg-grid.png');
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  & .card-body {
+    z-index: 1;
   }
 
 }

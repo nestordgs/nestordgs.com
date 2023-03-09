@@ -4,4 +4,9 @@ export interface IExperience {
   title: string;
   company: string;
   description: string;
-}
+};
+
+export interface IExperienceDescription {
+  company: string;
+  description: string;
+};
