@@ -1,19 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { IExperience } from "./interfaces/intex";
-// import * as dayjs from "dayjs";
-import dayjs from "dayjs";
-import "dayjs/locale/es";
-import "dayjs/locale/en";
-import { TranslationConext } from "../../translations";
 import { ExperienceTitle } from "../utils/ExperienceTitle";
 import { ExperienceDescription } from "./ExperienceDescription";
-
-dayjs.locale("es");
+import { ExperienceTabs } from "./ExperienceTabs";
 
 export const Experiences = () => {
   const { t } = useTranslation();
-  const { language } = useContext(TranslationConext);
 
   const experiences: IExperience[] = [
     {
@@ -66,14 +59,6 @@ export const Experiences = () => {
     },
   ];
 
-  useEffect(() => {
-    if (language === "es") {
-      dayjs.locale("es");
-    } else {
-      dayjs.locale("en");
-    }
-  }, [language]);
-
   return (
     <div className="container py-5">
       <h2
@@ -83,38 +68,7 @@ export const Experiences = () => {
         {t("experiences.title")}.
         <span className="experiences-title-line bg-menu-color-bar" />
       </h2>
-      <ul
-        className="nav nav-pills mb-3 nav-justifiedd flex-nowrap experiences-tabs pb-3"
-        id="experience-tab"
-        role="tablist"
-        data-testid="experiences-list-tabs"
-      >
-        {experiences.map((experience: IExperience, index: number) => {
-          const { dateFrom, dateTo, company } = experience;
-          return (
-            <li
-              className={`nav-item border text-white rounded-pill text-center experience py-1 ${
-                index === 0 && "active"
-              }`}
-              key={`experience-${index}`}
-              data-bs-toggle="pill"
-              data-bs-target={`#experience-${company.replace(" ", "-")}`}
-            >
-              <button
-                className="btn btn-primary text-capitalize px-0 text-white"
-                id="experience-profile-tab"
-                type="button"
-                role="tab"
-                aria-controls="experience-profile"
-                aria-selected="false"
-              >
-                {dayjs(dateFrom).format("MMM YYYY")} -{" "}
-                {dateTo ? dayjs(dateTo).format("MMM YYYY") : "Actual"}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      <ExperienceTabs experiences={experiences} />
       <div className="tab-content" id="experiences-tabContent">
         {experiences.map((experience: IExperience, index: number) => {
           const { title, company, description } = experience;
