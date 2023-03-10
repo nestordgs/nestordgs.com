@@ -3,6 +3,7 @@ import { Menu } from "./components/Menu/Menu";
 import { TranslationProvider } from "./translations";
 import { Header } from "./components/Header/Header";
 import { Aptitudes } from "./components/Aptitudes/Aptitudes";
+import { Experiences } from "./components/Experiences";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Menu />
       <Header />
       <Aptitudes />
+      <Experiences />
     </TranslationProvider>
   );
 }

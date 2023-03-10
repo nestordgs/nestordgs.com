@@ -23,7 +23,10 @@ export const Menu = () => {
   }, [language]);
 
   return (
-    <nav className="navbar navbar-expand-lg py-4" data-testid="header-page">
+    <nav
+      className="navbar navbar-expand-lg py-4 sticky-top bg-dark-nestordgs"
+      data-testid="header-page"
+    >
       <div className="container">
         <a className="navbar-brand" href="/" data-testid="logo">
           <img

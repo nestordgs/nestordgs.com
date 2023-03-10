@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.0",
     "animated-grid-lines": "https://github.com/nestordgs/animated-grid-lines",
     "bootstrap": "^5.3.0-alpha1",
+    "dayjs": "^1.11.7",
     "i18next": "^22.4.9",
     "jest-canvas-mock": "^2.4.0",
     "json-loader": "^0.5.7",

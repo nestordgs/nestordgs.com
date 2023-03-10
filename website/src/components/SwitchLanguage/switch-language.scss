@@ -19,7 +19,7 @@
 
     &::before {
       content: "";
-      background: #{$black-nestordgs};
+      @extend .bg-dark-nestordgs;
       height: 1.2rem;
       width: 1.2rem;
       position: absolute;
@@ -33,7 +33,7 @@
     &::after {
       content: attr(data-language);
       position: absolute;
-      color: #{$black-nestordgs};
+      @extend .text-dark-nestordgs;
       top: 0%;
       left: 15%;
       font-weight: bold;
