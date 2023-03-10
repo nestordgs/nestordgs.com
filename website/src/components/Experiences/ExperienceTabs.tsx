@@ -35,7 +35,7 @@ export const ExperienceTabs: React.FC<IExperienceTabs> = ({ experiences }) => {
             }`}
             key={`experience-${index}`}
             data-bs-toggle="pill"
-            data-bs-target={`#experience-${company.replace(" ", "-")}`}
+            data-bs-target={`#experience-${company.replaceAll(" ", "-")}`}
           >
             <button
               className="btn btn-primary text-capitalize px-0 text-white"

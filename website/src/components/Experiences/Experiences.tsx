@@ -13,49 +13,49 @@ export const Experiences = () => {
       dateFrom: "06/01/2022",
       title: "Senior Developer Consultant",
       company: "Thoughtworks",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sapiente enim architecto consectetur eum at quaerat, fugiat voluptatibus quia deserunt iure eaque est voluptates consequuntur quos error accusamus reprehenderit tempora",
+      description: "experiences.tw",
     },
     {
       dateFrom: "06/01/2021",
       dateTo: "06/01/2022",
       title: "Full Stack Developer",
       company: "Option SPA",
-      description: `Desarrollo de aplicaciones web haciendo uso de ReactJs como librería de Front-end.
-
-      En cuanto a Back-end se hace uso de Docker container en conjunto con el framework Python Flask para generar una API que será orquestada por Fargate en AWS. Dicha aplicación contempla la generación de Dashboard para mostrar la información procesada por los ETL.`,
+      description: "experiences.option",
     },
     {
       dateFrom: "11/01/2019",
       dateTo: "05/01/2021",
       title: "Cloud Engineer",
       company: "Arkotech",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sapiente enim architecto consectetur eum at quaerat, fugiat voluptatibus quia deserunt iure eaque est voluptates consequuntur quos error accusamus reprehenderit tempora",
+      description: "experiences.arkho",
     },
     {
       dateFrom: "06/01/2019",
       dateTo: "06/01/2019",
       title: "Full Stack Developer",
       company: "Karibu",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sapiente enim architecto consectetur eum at quaerat, fugiat voluptatibus quia deserunt iure eaque est voluptates consequuntur quos error accusamus reprehenderit tempora",
+      description: "experiences.karibu",
+    },
+    {
+      dateFrom: "04/01/2019",
+      dateTo: "05/01/2019",
+      title: "Front End Developer",
+      company: "Ssilva Gestion Inmobiliaria",
+      description: "experiences.ssilva",
     },
     {
       dateFrom: "01/01/2019",
       dateTo: "10/01/2018",
       title: "Full Stack Engineer",
       company: "Vendy",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sapiente enim architecto consectetur eum at quaerat, fugiat voluptatibus quia deserunt iure eaque est voluptates consequuntur quos error accusamus reprehenderit tempora",
+      description: "experiences.vendy",
     },
     {
       dateFrom: "06/01/2019",
       dateTo: "11/01/2018",
       title: "Web Developer",
       company: "Develoop Software",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sapiente enim architecto consectetur eum at quaerat, fugiat voluptatibus quia deserunt iure eaque est voluptates consequuntur quos error accusamus reprehenderit tempora",
+      description: "experiences.develoop",
     },
   ];
 
@@ -77,10 +77,13 @@ export const Experiences = () => {
               className={`tab-pane fade experience-content show ${
                 index === 0 && "active"
               }`}
-              id={`experience-${company.replace(" ", "-")}`}
+              id={`experience-${company.replaceAll(" ", "-")}`}
               role="tabpanel"
               key={`experience-content-${index}`}
-              aria-labelledby={`experience-${company.replace(" ", "-")}-tab"`}
+              aria-labelledby={`experience-${company.replaceAll(
+                " ",
+                "-"
+              )}-tab"`}
             >
               <div className="card mb-3">
                 <div className="row g-0">
