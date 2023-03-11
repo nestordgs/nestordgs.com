@@ -3,10 +3,6 @@
     overflow-x: auto;
     gap: 5px;
 
-    @include media-breakpoint-up('xxl') {
-      justify-content: space-evenly;
-    }
-
     & .experience {
       min-width: 200px;
 
