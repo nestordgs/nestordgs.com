@@ -28,13 +28,6 @@ export const Menu = () => {
       data-testid="header-page"
     >
       <div className="container">
-        <a className="navbar-brand" href="/" data-testid="logo">
-          <img
-            src="../assets/logo.png"
-            alt="Nestor Gutierrez"
-            className="img-fluid size-logo-menu"
-          />
-        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -46,6 +39,20 @@ export const Menu = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+        <a className="navbar-brand" href="/" data-testid="logo">
+          <img
+            src="../assets/logo.png"
+            alt="Nestor Gutierrez"
+            className="img-fluid size-logo-menu"
+          />
+        </a>
+        <div className="form-check form-switch">
+          <SwitchLanguage
+            label={`${language.toUpperCase()}`}
+            isChecked={language === "en" ? true : false}
+            onClick={handleLanguage}
+          />
+        </div>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul
             data-testid="menu-component"
@@ -65,13 +72,6 @@ export const Menu = () => {
               );
             })}
           </ul>
-          <div className="form-check form-switch">
-            <SwitchLanguage
-              label={`${language.toUpperCase()}`}
-              isChecked={language === "en" ? true : false}
-              onClick={handleLanguage}
-            />
-          </div>
         </div>
       </div>
       <span className="menu-color-bar bg-menu-color-bar" />
