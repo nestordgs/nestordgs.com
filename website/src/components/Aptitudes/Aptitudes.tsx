@@ -77,8 +77,8 @@ export const Aptitudes: React.FC = () => {
         <ul className="aptitudes-grid d-grid gap-3 ps-0 mb-0">
           {listAptitudes.map((aptitude: IAptitude, index: number) => {
             return (
-              <li className="d-inline-block">
-                <Aptitude {...aptitude} key={`aptitude-${index}`} />
+              <li className="d-inline-block" key={`aptitude-${index}`}>
+                <Aptitude {...aptitude} />
               </li>
             );
           })}
