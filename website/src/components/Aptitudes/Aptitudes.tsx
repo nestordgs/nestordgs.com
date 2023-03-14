@@ -29,21 +29,29 @@ export const Aptitudes: React.FC = () => {
       imageUrl: "../../../assets/aptitudes/python.png",
     },
     {
-      title: "NodeJs",
-      imageUrl: "../../../assets/aptitudes/nodejs.png",
-      colorClass: "difference",
+      title: "JavaScript",
+      imageUrl: "../../../assets/aptitudes/javascript.png",
     },
     {
       title: "Typescript",
       imageUrl: "../../../assets/aptitudes/typescript.png",
     },
     {
+      title: "SQL",
+      imageUrl: "../../../assets/aptitudes/sql.png",
+    },
+    {
       title: "ReactJs",
       imageUrl: "../../../assets/aptitudes/react.png",
     },
     {
-      title: "NodeJS",
-      imageUrl: "../../../assets/aptitudes/sass.png",
+      title: "Angular",
+      imageUrl: "../../../assets/aptitudes/angular.png",
+    },
+    {
+      title: "NodeJs",
+      imageUrl: "../../../assets/aptitudes/nodejs.png",
+      colorClass: "difference",
     },
     {
       title: "VueJs",
@@ -52,6 +60,10 @@ export const Aptitudes: React.FC = () => {
     {
       title: "Unit Tests",
       imageUrl: "../../../assets/aptitudes/unit-testing.png",
+    },
+    {
+      title: "Github Actions",
+      imageUrl: "../../../assets/aptitudes/gactions.png",
     },
   ];
 
