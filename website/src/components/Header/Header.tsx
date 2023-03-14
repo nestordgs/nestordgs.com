@@ -37,7 +37,7 @@ export const Header = () => {
             <LetterN />
           </div>
           <div className="col-12 col-sm-7 col-md-8 col-xl-9 container col-description d-flex flex-column align-items-left align-self-center">
-            <p className="fs-2 text-white">{t("aptitudes.im")}</p>
+            <h2 className="text-white">{t("aptitudes.im")}</h2>
             <p className="fs-5 text-white">{t("aptitudes.description")}</p>
           </div>
         </div>

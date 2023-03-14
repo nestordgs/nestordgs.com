@@ -9,8 +9,20 @@ export const Aptitudes: React.FC = () => {
       imageUrl: "../../../assets/aptitudes/aws.png",
     },
     {
+      title: "Azure",
+      imageUrl: "../../../assets/aptitudes/azure.png",
+    },
+    {
+      title: "Google Cloud Platform (GCP)",
+      imageUrl: "../../../assets/aptitudes/gcp.png",
+    },
+    {
       title: "Docker",
       imageUrl: "../../../assets/aptitudes/docker.png",
+    },
+    {
+      title: "Kubernetes",
+      imageUrl: "../../../assets/aptitudes/k8.png",
     },
     {
       title: "Python",
@@ -22,36 +34,24 @@ export const Aptitudes: React.FC = () => {
       colorClass: "difference",
     },
     {
-      title: "ReactJs",
-      imageUrl: "../../../assets/aptitudes/react.png",
-    },
-    {
       title: "Typescript",
       imageUrl: "../../../assets/aptitudes/typescript.png",
     },
     {
-      title: "Unit Tests",
-      imageUrl: "../../../assets/aptitudes/unit-testing.png",
+      title: "ReactJs",
+      imageUrl: "../../../assets/aptitudes/react.png",
     },
     {
-      title: "Kubernetes",
-      imageUrl: "../../../assets/aptitudes/k8.png",
-    },
-    {
-      title: "Azure",
-      imageUrl: "../../../assets/aptitudes/azure.png",
-    },
-    {
-      title: "Google Cloud Platform (GCP)",
-      imageUrl: "../../../assets/aptitudes/gcp.png",
+      title: "NodeJS",
+      imageUrl: "../../../assets/aptitudes/sass.png",
     },
     {
       title: "VueJs",
       imageUrl: "../../../assets/aptitudes/vue.png",
     },
     {
-      title: "Sass",
-      imageUrl: "../../../assets/aptitudes/sass.png",
+      title: "Unit Tests",
+      imageUrl: "../../../assets/aptitudes/unit-testing.png",
     },
   ];
 
@@ -62,11 +62,15 @@ export const Aptitudes: React.FC = () => {
           Aptitudes.
           <span className="aptitudes-title-line bg-menu-color-bar" />
         </h2>
-        <div className="d-grid gap-3 aptitudes-grid">
+        <ul className="aptitudes-grid d-grid gap-3 ps-0 mb-0">
           {listAptitudes.map((aptitude: IAptitude, index: number) => {
-            return <Aptitude {...aptitude} key={`aptitude-${index}`} />;
+            return (
+              <li className="d-inline-block">
+                <Aptitude {...aptitude} key={`aptitude-${index}`} />
+              </li>
+            );
           })}
-        </div>
+        </ul>
       </div>
     </>
   );
