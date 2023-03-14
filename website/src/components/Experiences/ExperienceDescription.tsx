@@ -15,7 +15,7 @@ export const ExperienceDescription: React.FC<IExperienceDescription> = ({
           {company}
         </h2>
         <p
-          className="card-text text-white text-keep-white-space fw-lighter"
+          className="card-text text-white text-keep-white-space fw-lighter fs-5"
           data-testid="company-description"
         >
           {t(description)}
