@@ -69,12 +69,12 @@ jobs:
 
       - name: Install Dependencies
         working-directory: website
-        run: yarn
+        run: npm i
 
       - name: Build Website
         working-directory: website
         run: |
-          yarn build
+          npm run build
 
       - name: Get Bucket name And CloudFront Dist Id
         id: resources-values
