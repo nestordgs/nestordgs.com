@@ -60,7 +60,7 @@ export const Experiences = () => {
   ];
 
   return (
-    <div className="container py-5">
+    <section className="container pb-5 pt-4">
       <h2
         className="experiences-title pb-2 d-inline-block mb-5"
         data-testid="experiences-title"
@@ -104,6 +104,6 @@ export const Experiences = () => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };

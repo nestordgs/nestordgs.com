@@ -69,21 +69,17 @@ export const Aptitudes: React.FC = () => {
 
   return (
     <>
-      <div className="container py-5">
+      <section className="container py-5">
         <h2 className="aptitudes-title pb-2 d-inline-block mb-5">
           Aptitudes.
           <span className="aptitudes-title-line bg-menu-color-bar" />
         </h2>
-        <ul className="aptitudes-grid d-grid gap-3 ps-0 mb-0">
+        <div className="aptitudes-grid d-grid gap-3 ps-0 mb-0">
           {listAptitudes.map((aptitude: IAptitude, index: number) => {
-            return (
-              <li className="d-inline-block" key={`aptitude-${index}`}>
-                <Aptitude {...aptitude} />
-              </li>
-            );
+            return <Aptitude {...aptitude} key={`aptitude-${index}`} />;
           })}
-        </ul>
-      </div>
+        </div>
+      </section>
     </>
   );
 };

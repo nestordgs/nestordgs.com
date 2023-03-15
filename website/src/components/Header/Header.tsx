@@ -22,7 +22,7 @@ export const Header = () => {
   ];
 
   return (
-    <div className="d-flex align-items-center justify-content-between container-header">
+    <section className="d-flex align-items-center justify-content-between container-header">
       <div className="header-background">
         <Grid
           colors={backgroundColors}
@@ -32,16 +32,16 @@ export const Header = () => {
         />
       </div>
       <div className="container header-description">
-        <div className="row row-description">
+        <figure className="row row-description mb-0">
           <div className="d-none d-md-block col-sm-4 col-xl-3 text-center bg-letter-n">
             <LetterN />
           </div>
           <div className="col-12 col-sm-7 col-md-8 col-xl-9 container col-description d-flex flex-column align-items-left align-self-center">
-            <h2 className="text-white">{t("aptitudes.im")}</h2>
+            <h1 className="text-white">{t("aptitudes.im")}</h1>
             <p className="fs-5 text-white">{t("aptitudes.description")}</p>
           </div>
-        </div>
+        </figure>
       </div>
-    </div>
+    </section>
   );
 };
