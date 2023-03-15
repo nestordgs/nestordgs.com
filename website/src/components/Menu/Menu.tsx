@@ -23,7 +23,7 @@ export const Menu = () => {
   }, [language]);
 
   return (
-    <nav
+    <header
       className="navbar navbar-expand-lg py-4 sticky-top bg-dark-nestordgs"
       data-testid="header-page"
     >
@@ -75,6 +75,6 @@ export const Menu = () => {
         </div>
       </div>
       <span className="menu-color-bar bg-menu-color-bar" />
-    </nav>
+    </header>
   );
 };

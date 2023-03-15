@@ -7,7 +7,7 @@ export const Aptitude: React.FC<IAptitude> = ({
   colorClass,
 }) => {
   return (
-    <div className="p-4l aptitude d-flex w-100">
+    <article className="p-4l aptitude d-flex w-100">
       <div className="col-5 aptitude-bg text-center d-flex align-items-center justify-content-center">
         <img
           src={imageUrl}
@@ -18,8 +18,8 @@ export const Aptitude: React.FC<IAptitude> = ({
         />
       </div>
       <div className="col d-flex align-items-center p-3 justify-content-center">
-        <p className="text-center text-white fs-5">{title}</p>
+        <h3 className="text-center text-white fs-5">{title}</h3>
       </div>
-    </div>
+    </article>
   );
 };
