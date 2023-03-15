@@ -5,11 +5,13 @@ import dayjs from "dayjs";
 import "dayjs/locale/es";
 import "dayjs/locale/en";
 import { TranslationConext } from "../../translations";
+import { useTranslation } from "react-i18next";
 
 dayjs.locale("es");
 
 export const ExperienceTabs: React.FC<IExperienceTabs> = ({ experiences }) => {
   const { language } = useContext(TranslationConext);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (language === "es") {
@@ -46,7 +48,9 @@ export const ExperienceTabs: React.FC<IExperienceTabs> = ({ experiences }) => {
               aria-selected="false"
             >
               {dayjs(dateFrom).format("MMM YYYY")} -{" "}
-              {dateTo ? dayjs(dateTo).format("MMM YYYY") : "Actual"}
+              {dateTo
+                ? dayjs(dateTo).format("MMM YYYY")
+                : t("experiences.actual")}
             </button>
           </li>
         );

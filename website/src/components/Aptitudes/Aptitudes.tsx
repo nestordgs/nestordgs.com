@@ -1,8 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { SectionTitle } from "../utils/SectionTitle/SectionTitle";
 import { Aptitude } from "./Aptitude";
 import { IAptitude } from "./interfaces";
 
 export const Aptitudes: React.FC = () => {
+  const { t } = useTranslation();
+
   const listAptitudes: IAptitude[] = [
     {
       title: "Amazon Web Services (AWS)",
@@ -70,10 +74,7 @@ export const Aptitudes: React.FC = () => {
   return (
     <>
       <section className="container py-5">
-        <h2 className="aptitudes-title pb-2 d-inline-block mb-5">
-          Aptitudes.
-          <span className="aptitudes-title-line bg-menu-color-bar" />
-        </h2>
+        <SectionTitle text={t("aptitudes.title")} />
         <div className="aptitudes-grid d-grid gap-3 ps-0 mb-0">
           {listAptitudes.map((aptitude: IAptitude, index: number) => {
             return <Aptitude {...aptitude} key={`aptitude-${index}`} />;

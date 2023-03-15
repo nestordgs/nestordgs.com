@@ -4,6 +4,7 @@ import { TranslationProvider } from "./translations";
 import { Header } from "./components/Header/Header";
 import { Aptitudes } from "./components/Aptitudes/Aptitudes";
 import { Experiences } from "./components/Experiences";
+import { Studies } from "./components/Studies/Studies";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Aptitudes />
       <Experiences />
+      <Studies />
     </TranslationProvider>
   );
 }

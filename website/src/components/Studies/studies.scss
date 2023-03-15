@@ -1,0 +1,13 @@
+.studies {
+  &-grid {
+    justify-content: center;
+
+    @include media-breakpoint-up('sm') {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%/2, max(#{$spacer*2}, 100%/3)), 1fr));
+    }
+
+    @include media-breakpoint-up('lg') {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%/3, max(#{$spacer*2}, 100%/5)), 1fr));
+    }
+  }
+}

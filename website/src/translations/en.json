@@ -9,11 +9,13 @@
       "contact": "Contact"
     },
     "aptitudes": {
+      "title": "Skills",
       "im": "I'm Nestor Gutiérrez",
       "description": "Full Stack Developer with a passion for developing solutions to troubleshoot and create user-friendly software. Proficient in cloud-based technologies, skilled in coding, and dedicated to delivering quality work. Enjoys creating optimal code while listening to music."
     },
     "experiences": {
       "title": "Experience",
+      "actual": "Current",
       "tw": "I developed applications using NestJs for the backend and React for the frontend, integrating the VTEX ecommerce platform into one of the projects. Additionally, I collaborated in the creation of a web chat application for the Todo Mejora Foundation, using React JS for the frontend and Firestore for data storage. In this project, I also made modifications to a cloud function responsible for receiving and sending messages. Moreover, I worked on improving the deployment flow, automating the task of creating environment tags through GitHub Actions. As a Senior Developer Consultant, I participated in technical decision-making and led the team in implementing efficient solutions.",
       "option": "I worked as a Full Stack Developer on a project for a mining company. In this project, I developed web applications using ReactJS as the Front-end library, which displayed information about the company's assets. The application includes the generation of dashboards to display the information processed by the ETLs. At the Back-end level, I used Docker container along with the Python Flask framework to generate an API orchestrated by Fargate in AWS. In addition, the Back-end application also served as a maintainer and viewer of the dashboard.",
       "arkho": "During my work experience, I have developed skills in web application development using technologies such as Angular v7/8 and databases in RDS. I have also participated in the creation of ETL using a variety of AWS services including Lambda, Step Functions, Athena, Glue, SQS, Redshift, and S3. Additionally, I have implemented chatbots for web pages, where I have worked on styling configuration and creating lambdas responsible for maintenance, using Elastic Search for data storage. Finally, I have developed an integration between systems to generate reports and progress notifications for projects through an external API. These skills have allowed me to be successful in complex projects and a high-pressure environment.",
@@ -21,6 +23,9 @@
       "ssilva": "I worked as a Frontend Developer on a web system project for a real estate company, where I developed components using the VueJs framework and used the Vuex library to implement secure access credentials storage on the Front-end layer. I also configured and used Axios for communication between the Front-end and Back-end layers.",
       "vendy": "I participated in the development of web systems by implementing technologies such as Node.js and Express for creating back-end APIs. I also worked with MySQL databases for storing system data and utilized e-commerce technologies such as Braintree. In addition, I contributed to the development of web applications using technologies such as MySQL, Node.js, and Express to improve user experience and system efficiency.",
       "develoop": "During this work experience, I participated in the development of web systems using technologies such as MySQL, PHP, Laravel Framework, Javascript, and CSS. I focused on a special project to generate a 3D plan of pipes inside a factory, where I collaborated in the design and development of the 2D functionality on the web and its subsequent transformation to 3D using ThreeJS. It was a great opportunity to apply my knowledge in cutting-edge technologies and to work as a team in solving an important technical challenge."
+    },
+    "studies": {
+      "title": "Studies"
     }
   }
 }
