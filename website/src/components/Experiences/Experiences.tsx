@@ -61,7 +61,7 @@ export const Experiences = () => {
   ];
 
   return (
-    <section className="container pb-5 pt-4">
+    <section className="container pb-5 pt-4 px-0">
       <SectionTitle text={t("experiences.title")} />
       <ExperienceTabs experiences={experiences} />
       <div className="tab-content" id="experiences-tabContent">
