@@ -10,7 +10,7 @@ export const Aptitudes: React.FC = () => {
   const listAptitudes: IAptitude[] = [
     {
       title: "Amazon Web Services (AWS)",
-      imageUrl: "../../../assets/aptitudes/aws-white.png",
+      imageUrl: "../../../assets/aptitudes/aws.png",
     },
     {
       title: "Azure",
