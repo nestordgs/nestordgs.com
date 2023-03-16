@@ -14,57 +14,53 @@ export const Studies = () => {
       dateFrom: "10/01/2020",
       dateTo: "10/01/2023",
       credentialId: "Z1HLWNXD1JV4QJS1",
+      image: "../../../assets/aptitudes/aws.png",
     },
     {
-      title: "AWS Certified Developer - Associate",
-      institute: "Amazon Web Services",
-      dateFrom: "10/01/2020",
-      dateTo: "10/01/2023",
-      credentialId: "Z1HLWNXD1JV4QJS1",
+      title: "Certified Linux Operator",
+      institute: "Latinux Inc",
+      dateFrom: "03/01/2016",
+      credentialId: "VE3REG151B1CLO",
+      image: "../../../assets/linux.png",
     },
     {
-      title: "AWS Certified Developer - Associate",
-      institute: "Amazon Web Services",
-      dateFrom: "10/01/2020",
-      // dateTo: "10/01/2023",
-      // credentialId: "Z1HLWNXD1JV4QJS1",
+      title: "Javascript Specialization",
+      institute: "Uneweb Instituto",
+      dateFrom: "03/01/2017",
+      image: "../../../assets/aptitudes/javascript.png",
     },
     {
-      title: "AWS Certified Developer - Associate",
-      institute: "Amazon Web Services",
-      dateFrom: "10/01/2020",
-      // dateTo: "10/01/2023",
-      // credentialId: "Z1HLWNXD1JV4QJS1",
+      title: "Computer Engineer",
+      institute: "Colegio Universitario de Caracas",
+      dateFrom: "07/01/2014",
+      image: "../../../assets/binary-code.png",
     },
   ];
 
   return (
-    <section className="container pb-5 pt-4">
+    <section className="container pb-5 pt-4 px-0">
       <SectionTitle text={t("studies.title")} />
       <div className="studies-grid d-grid gap-3 ps-0 mb-0">
         {listStudies.map((studie: IStudie, index: number) => {
           return (
-            <article className="studie-item" key={`studies-${index}`}>
+            <article className="card studie-item pt-3" key={`studies-${index}`}>
               <img
-                src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png"
-                className="card-img-top img-fluid rounded-start aptitude-img"
-                style={
-                  {
-                    // maxHeight: 80,
-                    // maxWidth: 80,
-                  }
-                }
+                src={studie.image}
+                className="mx-auto img-fluid card-img-top rounded-start study-img"
+                alt={studie.title}
               />
-              <h2 className="fs-3">{studie.title}</h2>
-              <p>{studie.institute}</p>
-              <p>
-                {dayjs(studie.dateFrom).format("MMM YYYY")}
-                {studie.dateTo &&
-                  ` - ${dayjs(studie.dateTo).format("MMM YYYY")}`}
-              </p>
-              {studie.credentialId && (
-                <p>Credential ID: {studie.credentialId}</p>
-              )}
+              <div className="card-body">
+                <h2 className="fs-4">{studie.title}</h2>
+                <p>{studie.institute}.</p>
+                <p className="text-capitalize">
+                  {dayjs(studie.dateFrom).format("MMM YYYY")}
+                  {studie.dateTo &&
+                    ` - ${dayjs(studie.dateTo).format("MMM YYYY")}`}
+                </p>
+                {studie.credentialId && (
+                  <p>Credential ID: {studie.credentialId}</p>
+                )}
+              </div>
             </article>
           );
         })}
