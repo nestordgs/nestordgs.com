@@ -27,7 +27,7 @@ export const Menu = () => {
       className="navbar navbar-expand-lg py-4 sticky-top bg-dark-nestordgs"
       data-testid="header-page"
     >
-      <div className="container">
+      <div className="container px-0">
         <button
           className="navbar-toggler"
           type="button"

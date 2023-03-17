@@ -4,6 +4,7 @@ import { IExperience } from "./interfaces/intex";
 import { ExperienceTitle } from "../utils/ExperienceTitle";
 import { ExperienceDescription } from "./ExperienceDescription";
 import { ExperienceTabs } from "./ExperienceTabs";
+import { SectionTitle } from "../utils/SectionTitle/SectionTitle";
 
 export const Experiences = () => {
   const { t } = useTranslation();
@@ -60,14 +61,8 @@ export const Experiences = () => {
   ];
 
   return (
-    <section className="container pb-5 pt-4">
-      <h2
-        className="experiences-title pb-2 d-inline-block mb-5"
-        data-testid="experiences-title"
-      >
-        {t("experiences.title")}.
-        <span className="experiences-title-line bg-menu-color-bar" />
-      </h2>
+    <section className="container pb-5 pt-4 px-0">
+      <SectionTitle text={t("experiences.title")} />
       <ExperienceTabs experiences={experiences} />
       <div className="tab-content" id="experiences-tabContent">
         {experiences.map((experience: IExperience, index: number) => {

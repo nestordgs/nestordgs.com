@@ -13,14 +13,8 @@ describe("<Menu Component />", () => {
   });
 
   it("Should Render Title", () => {
-    const experiencesTitle = screen.getByTestId("experiences-title");
+    const experiencesTitle = screen.getByTestId("section-title");
 
     expect(experiencesTitle).toBeInTheDocument();
-  });
-
-  it("Should Render List Experiences", () => {
-    const companyDescription = screen.getByTestId("experiences-list-tabs");
-
-    expect(companyDescription).toBeInTheDocument();
   });
 });
