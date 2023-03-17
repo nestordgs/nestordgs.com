@@ -1,5 +1,4 @@
 import React from "react";
-import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 import { SectionTitle } from "../utils/SectionTitle/SectionTitle";
 import { IStudy } from "./interfaces/IStudies";
