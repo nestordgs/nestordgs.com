@@ -25,7 +25,8 @@
       "develoop": "Durante esta experiencia laboral, participé en el desarrollo de sistemas web utilizando tecnologías como MySQL, PHP, Laravel Framework, Javascript y CSS. Me enfoqué en un proyecto especial para generar un plano 3D de tuberías dentro de una fábrica, donde colaboré en el diseño y desarrollo de la funcionalidad 2D en la web y su posterior transformación a 3D mediante el uso de ThreeJS. Fue una gran oportunidad para aplicar mis conocimientos en tecnologías de vanguardia y para trabajar en equipo en la resolución de un desafío técnico importante."
     },
     "studies": {
-      "title": "Estudios"
+      "title": "Estudios",
+      "credential": "ID Certificación"
     }
   }
 }

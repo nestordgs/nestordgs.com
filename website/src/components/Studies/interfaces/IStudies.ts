@@ -1,4 +1,4 @@
-export interface IStudie {
+export interface IStudy {
   title: string;
   institute: string;
   dateFrom: string;
