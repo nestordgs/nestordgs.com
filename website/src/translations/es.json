@@ -27,6 +27,13 @@
     "studies": {
       "title": "Estudios",
       "credential": "ID Certificación"
+    },
+    "interests": {
+      "title": "Intereses",
+      "description": "El desarrollo de nuevas tecnologías es mi pasión, por lo que me mantengo en constante aprendizaje para estar al tanto de las últimas tendencias en el campo. Siento un particular interés por profundizar en el ecosistema cloud, ya que considero que ofrece un gran potencial para mejorar la eficiencia y escalabilidad de los sistemas. Mi objetivo es continuar adquiriendo conocimientos en este ámbito para aplicarlos en proyectos futuros y mejorar mis habilidades como desarrollador."
+    },
+    "contact": {
+      "title": "Contacto"
     }
   }
 }

@@ -3,3 +3,8 @@
   border: 1px solid $hover-color !important;
   border-color: $hover-color;
 }
+
+@mixin dynamic-color($colors) {
+  $hover-color: nth($colors, random(length($colors)));
+  color: $hover-color;
+}

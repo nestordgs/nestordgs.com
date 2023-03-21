@@ -27,6 +27,13 @@
     "studies": {
       "title": "Studies",
       "credential": "Certification ID:"
+    },
+    "interests": {
+      "title": "Interests",
+      "description": "The development of new technologies is my passion, which is why I am constantly learning to keep up with the latest trends in the field. I have a particular interest in delving deeper into the cloud ecosystem, as I believe it offers great potential for improving the efficiency and scalability of systems. My goal is to continue acquiring knowledge in this area to apply it to future projects and improve my skills as a developer."
+    },
+    "contact": {
+      "title": "Contact"
     }
   }
 }

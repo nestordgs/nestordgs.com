@@ -9,6 +9,21 @@
     @include media-breakpoint-up('lg') {
       grid-template-columns: repeat(auto-fit, minmax(min(100%/3, max(#{$spacer*2}, 100%/5)), 1fr));
     }
+
+    & .card {
+      cursor: pointer;
+
+      &:hover {
+        &::after {
+          content: "";
+          position: absolute;
+          inset: -.09em;
+          border: 1px solid;
+          @include dynamic-border-color-blur($gradients-colors);
+          filter: blur(1em);
+        }
+      }
+    }
   }
 }
 

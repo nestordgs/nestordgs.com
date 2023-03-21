@@ -5,6 +5,8 @@ import { Header } from "./components/Header/Header";
 import { Aptitudes } from "./components/Aptitudes/Aptitudes";
 import { Experiences } from "./components/Experiences";
 import { Studies } from "./components/Studies/Studies";
+import { Interests } from "./components/Interests/Interests";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Aptitudes />
       <Experiences />
       <Studies />
+      <Interests />
+      <Footer />
     </TranslationProvider>
   );
 }

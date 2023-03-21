@@ -23,7 +23,7 @@ export const ExperienceTabs: React.FC<IExperienceTabs> = ({ experiences }) => {
 
   return (
     <ul
-      className="nav nav-pills mb-3 nav-justifiedd flex-nowrap experiences-tabs pb-3"
+      className="nav nav-pills mb-3 flex-nowrap experiences-tabs pb-3"
       id="experience-tab"
       role="tablist"
       data-testid="experiences-list-tabs"
