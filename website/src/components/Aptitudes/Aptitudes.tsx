@@ -75,11 +75,11 @@ export const Aptitudes: React.FC = () => {
   ];
 
   const [showMore, setShowMore] = useState<boolean>(false);
-  const [toSlice, setToSlice] = useState<number>(listAptitudes.length - 1);
+  const [toSlice, setToSlice] = useState<number>(listAptitudes.length);
 
   useEffect(() => {
     if (largeScreen && mediumScreen) {
-      setToSlice(listAptitudes.length - 1);
+      setToSlice(listAptitudes.length);
     }
 
     if ((largeScreen && !mediumScreen) || (!largeScreen && mediumScreen)) {
@@ -92,7 +92,7 @@ export const Aptitudes: React.FC = () => {
   }, [largeScreen, mediumScreen, listAptitudes.length]);
 
   const handleShowMore = () => {
-    setToSlice(listAptitudes.length - 1);
+    setToSlice(listAptitudes.length);
     setShowMore(true);
   };
 
