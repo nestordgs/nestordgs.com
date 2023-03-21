@@ -89,13 +89,7 @@ export const Aptitudes: React.FC = () => {
     if (!largeScreen && !mediumScreen) {
       setToSlice(4);
     }
-
-    console.log(
-      largeScreen,
-      mediumScreen,
-      listAptitudes.slice(0, toSlice).length
-    );
-  }, [largeScreen, mediumScreen]);
+  }, [largeScreen, mediumScreen, listAptitudes.length]);
 
   const handleShowMore = () => {
     setToSlice(listAptitudes.length - 1);
