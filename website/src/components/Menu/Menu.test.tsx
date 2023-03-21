@@ -28,6 +28,6 @@ describe("<Menu Component />", () => {
 
     expect(menuComponent).toBeInTheDocument();
 
-    expect(menuComponent.children).toHaveLength(5);
+    expect(menuComponent.children).toHaveLength(4);
   });
 });

@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "usehooks-ts";
 import { SectionTitle } from "../utils/SectionTitle/SectionTitle";
 import { Aptitude } from "./Aptitude";
 import { IAptitude } from "./interfaces";
 
 export const Aptitudes: React.FC = () => {
   const { t } = useTranslation();
+  const largeScreen = useMediaQuery("(min-width: 992px)");
+  const mediumScreen = useMediaQuery("(min-width: 576px)");
 
   const listAptitudes: IAptitude[] = [
     {
@@ -71,14 +74,68 @@ export const Aptitudes: React.FC = () => {
     },
   ];
 
+  const [showMore, setShowMore] = useState<boolean>(false);
+  const [toSlice, setToSlice] = useState<number>(listAptitudes.length - 1);
+
+  useEffect(() => {
+    if (largeScreen && mediumScreen) {
+      setToSlice(listAptitudes.length - 1);
+    }
+
+    if ((largeScreen && !mediumScreen) || (!largeScreen && mediumScreen)) {
+      setToSlice(6);
+    }
+
+    if (!largeScreen && !mediumScreen) {
+      setToSlice(4);
+    }
+  }, [largeScreen, mediumScreen, listAptitudes.length]);
+
+  const handleShowMore = () => {
+    setToSlice(listAptitudes.length - 1);
+    setShowMore(true);
+  };
+
+  const handleShowLess = () => {
+    if ((largeScreen && !mediumScreen) || (!largeScreen && mediumScreen)) {
+      setToSlice(6);
+    }
+
+    if (!largeScreen && !mediumScreen) {
+      setToSlice(4);
+    }
+    setShowMore(false);
+  };
+
   return (
     <>
-      <section className="container py-5 px-xxl-0">
+      <section className="container py-5 px-xxl-0" id="aptitudes">
         <SectionTitle text={t("aptitudes.title")} />
         <div className="aptitudes-grid d-grid gap-3 ps-0 mb-0">
-          {listAptitudes.map((aptitude: IAptitude, index: number) => {
-            return <Aptitude {...aptitude} key={`aptitude-${index}`} />;
-          })}
+          {listAptitudes
+            .slice(0, toSlice)
+            .map((aptitude: IAptitude, index: number) => {
+              return <Aptitude {...aptitude} key={`aptitude-${index}`} />;
+            })}
+        </div>
+        <div className="text-center pt-4 d-lg-none">
+          {!showMore ? (
+            <button
+              type="button"
+              className="btn border btn-outline-gradient-nestordgs-2"
+              onClick={handleShowMore}
+            >
+              Show More
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btn border btn-outline-gradient-nestordgs-4"
+              onClick={handleShowLess}
+            >
+              Show Less
+            </button>
+          )}
         </div>
       </section>
     </>

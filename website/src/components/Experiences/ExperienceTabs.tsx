@@ -40,7 +40,7 @@ export const ExperienceTabs: React.FC<IExperienceTabs> = ({ experiences }) => {
             data-bs-target={`#experience-${company.replaceAll(" ", "-")}`}
           >
             <button
-              className="btn btn-primary text-capitalize px-0 text-white"
+              className="btn text-capitalize px-0 text-white"
               id="experience-profile-tab"
               type="button"
               role="tab"

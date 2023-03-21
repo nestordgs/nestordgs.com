@@ -1,3 +1,8 @@
+// website/node_modules/bootstrap/scss/_variables.scss
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
 @import "mixins/mixins";
 @import "variables";
 @import "bootstrap";
@@ -9,3 +14,4 @@
 @import "../components/utils/utils";
 @import "../components/Experiences/experiences";
 @import "../components/Studies/studies";
+@import "../components/Footer/footer";

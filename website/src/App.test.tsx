@@ -9,5 +9,15 @@ test("renders learn react link", () => {
     lineTo: jest.fn(),
     stroke: jest.fn(),
   });
+
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: false,
+      addListener: jest.fn(),
+      removeEventListener: jest.fn(),
+    })),
+  });
+
   render(<App />);
 });
