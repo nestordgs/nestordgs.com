@@ -1,0 +1,12 @@
+.btn-group {
+  &.no-hover {
+    &>.btn {
+      color: $white;
+
+      &:hover {
+        background: none;
+        @include dynamic-color($gradients-colors);
+      }
+    }
+  }
+}

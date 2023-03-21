@@ -109,7 +109,7 @@ export const Aptitudes: React.FC = () => {
 
   return (
     <>
-      <section className="container py-5 px-xxl-0">
+      <section className="container py-5 px-xxl-0" id="aptitudes">
         <SectionTitle text={t("aptitudes.title")} />
         <div className="aptitudes-grid d-grid gap-3 ps-0 mb-0">
           {listAptitudes

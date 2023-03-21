@@ -5,10 +5,17 @@ import { brands, solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export const Footer = () => {
   return (
-    <footer className="container pb-5 px-xxl-0 text-center text-body-secondary- text-body-tertiary">
-      <div className="btn-group" role="group" aria-label="Basic example">
+    <footer
+      className="container pb-5 px-xxl-0 text-center text-body-tertiary"
+      id="contact"
+    >
+      <div
+        className="btn-group no-hover"
+        role="group"
+        aria-label="Basic example"
+      >
         <a
-          className="btn btn-link btn-dark text-white ps-0"
+          className="btn btn-link"
           href="https://www.linkedin.com/in/nestordgs/"
           target="_blank"
           rel="noreferrer"
@@ -16,7 +23,7 @@ export const Footer = () => {
           <FontAwesomeIcon icon={brands("linkedin")} />
         </a>
         <a
-          className="btn btn-link btn-dark text-white"
+          className="btn btn-link"
           href="https://gitlab.com/nestordgs"
           target="_blank"
           rel="noreferrer"
@@ -24,7 +31,7 @@ export const Footer = () => {
           <FontAwesomeIcon icon={brands("gitlab")} />
         </a>
         <a
-          className="btn btn-link btn-dark text-white"
+          className="btn btn-link"
           href="https://github.com/nestordgs"
           target="_blank"
           rel="noreferrer"
@@ -32,7 +39,7 @@ export const Footer = () => {
           <FontAwesomeIcon icon={brands("github")} />
         </a>
         <a
-          className="btn btn-link btn-dark text-white pe-0"
+          className="btn btn-link"
           href="https://dev.to/nestordgs"
           target="_blank"
           rel="noreferrer"

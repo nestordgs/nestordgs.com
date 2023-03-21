@@ -38,7 +38,7 @@ export const Studies = () => {
   ];
 
   return (
-    <section className="container pb-5 pt-4 px-xxl-0">
+    <section className="container pb-5 pt-4 px-xxl-0" id="study">
       <SectionTitle text={t("studies.title")} />
       <div className="studies-grid d-grid gap-3 ps-0 mb-0">
         {listStudies.map((studie: IStudy, index: number) => {
