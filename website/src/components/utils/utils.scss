@@ -38,3 +38,7 @@
     }
   }
 }
+
+.footer-heart {
+  @include dynamic-color($gradients-colors);
+}
