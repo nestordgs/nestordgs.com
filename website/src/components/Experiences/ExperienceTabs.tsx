@@ -47,10 +47,10 @@ export const ExperienceTabs: React.FC<IExperienceTabs> = ({ experiences }) => {
               aria-controls="experience-profile"
               aria-selected="false"
             >
-              {dayjs(dateFrom).format("MMM YYYY")} -{" "}
               {dateTo
                 ? dayjs(dateTo).format("MMM YYYY")
-                : t("experiences.actual")}
+                : t("experiences.actual")}{" "}
+              - {dayjs(dateFrom).format("MMM YYYY")}
             </button>
           </li>
         );
