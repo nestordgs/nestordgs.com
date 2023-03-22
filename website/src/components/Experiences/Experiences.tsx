@@ -11,7 +11,7 @@ export const Experiences = () => {
 
   const experiences: IExperience[] = [
     {
-      dateFrom: "06/01/2022",
+      dateFrom: "07/01/2022",
       title: "Senior Developer Consultant",
       company: "Thoughtworks",
       description: "experiences.tw",
@@ -32,7 +32,7 @@ export const Experiences = () => {
     },
     {
       dateFrom: "06/01/2019",
-      dateTo: "06/01/2019",
+      dateTo: "11/01/2019",
       title: "Full Stack Developer",
       company: "Karibu",
       description: "experiences.karibu",
@@ -45,15 +45,15 @@ export const Experiences = () => {
       description: "experiences.ssilva",
     },
     {
-      dateFrom: "01/01/2019",
-      dateTo: "10/01/2018",
+      dateFrom: "10/01/2018",
+      dateTo: "01/01/2019",
       title: "Full Stack Engineer",
       company: "Vendy",
       description: "experiences.vendy",
     },
     {
-      dateFrom: "06/01/2019",
-      dateTo: "11/01/2018",
+      dateFrom: "11/01/2017",
+      dateTo: "07/01/2018",
       title: "Web Developer",
       company: "Develoop Software",
       description: "experiences.develoop",
