@@ -43,7 +43,7 @@ jobs:
   CompileAndDeploy:
     needs: [DeployInfra]
     runs-on: ubuntu-latest
-    environment: development
+    environment: production
     steps:
       - name: Repo Checkout
         uses: actions/checkout@v3
