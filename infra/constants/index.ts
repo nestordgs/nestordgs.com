@@ -1,2 +1,4 @@
 export const ENVIRONMENT = process.env.ENVIRONMENT || 'dev'
 export const PROJECT_NAME = process.env.PROJECT_NAME || 'testing'
+export const HOSTED_ZONE_ID = process.env.HOSTED_ZONE_ID || ''
+export const HOSTED_ZONE_NAME = process.env.HOSTED_ZONE_NAME || ''

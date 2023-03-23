@@ -2,9 +2,11 @@ import * as cdk from 'aws-cdk-lib';
 import { RemovalPolicy } from 'aws-cdk-lib';
 import { AllowedMethods, CachePolicy, Distribution, OriginAccessIdentity, OriginRequestPolicy, ResponseHeadersPolicy, ViewerProtocolPolicy } from 'aws-cdk-lib/aws-cloudfront';
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
+import { ARecord, HostedZone, IHostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
+import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { BlockPublicAccess, Bucket, BucketEncryption, HttpMethods } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
-import { ENVIRONMENT, PROJECT_NAME } from '../constants';
+import { ENVIRONMENT, HOSTED_ZONE_ID, HOSTED_ZONE_NAME, PROJECT_NAME } from '../constants';
 
 export class InfraStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -45,6 +47,21 @@ export class InfraStack extends cdk.Stack {
         }
       }
     );
+
+    if (ENVIRONMENT === 'prod') {
+      const zone: IHostedZone = HostedZone.fromHostedZoneAttributes(this, 'websiteHostedZone', {
+        zoneName: HOSTED_ZONE_NAME,
+        hostedZoneId: HOSTED_ZONE_ID
+      });
+
+      new ARecord(this, 'websiteARecord', {
+        recordName: HOSTED_ZONE_NAME,
+        target: RecordTarget.fromAlias(
+          new CloudFrontTarget(cloudfrontDistri)
+        ),
+        zone
+      });
+    }
 
     new cdk.CfnOutput(this, 'websiteBucketName', {
       value: websiteBucket.bucketName
