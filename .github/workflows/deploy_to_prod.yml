@@ -1,0 +1,106 @@
+name: Deploy Prod
+
+on:
+  workflow_dispatch:
+
+jobs:
+  DeployInfra:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v3
+        with:
+          set-safe-directory: false
+
+      - name: Node setup
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18
+
+      - name: Upgrade AWS CDK
+        run: npm uninstall -g aws-cdk && npm i -g aws-cdk
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Install Dependencies
+        working-directory: infra
+        run: npm install
+
+      - name: Deploy to Environment
+        working-directory: infra
+        env:
+          PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
+          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+        run: |
+          cdk deploy --all --require-approval never
+
+  CompileAndDeploy:
+    needs: [DeployInfra]
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v3
+        with:
+          set-safe-directory: false
+
+      - name: Node setup
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18
+
+      - name: Upgrade AWS CDK
+        run: npm i -g aws-cdk
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Install Dependencies
+        working-directory: website
+        run: npm i
+
+      - name: Build Website
+        working-directory: website
+        run: |
+          npm run build
+
+      - name: Get Bucket name And CloudFront Dist Id
+        id: resources-values
+        working-directory: website
+        run: |
+          BUCKETNAME=$(aws cloudformation describe-stacks \
+            --stack-name InfraStack \
+            --query 'Stacks[0].Outputs[?OutputKey==`websiteBucketName`].OutputValue' \
+            --output text \
+            --region ${{ secrets.AWS_REGION }})
+
+          CLOUDFRONTID=$(aws cloudformation describe-stacks \
+            --stack-name InfraStack \
+            --query 'Stacks[0].Outputs[?OutputKey==`cloudFrontDistId`].OutputValue' \
+            --output text \
+            --region ${{ secrets.AWS_REGION }})
+
+          echo "bucket=$BUCKETNAME" >> $GITHUB_OUTPUT
+          echo "cloudfront=$CLOUDFRONTID" >> $GITHUB_OUTPUT
+
+      - name: Upload files to bucket
+        working-directory: website
+        run: |
+          aws s3 sync ./build s3://${{ steps.resources-values.outputs.bucket }}
+
+      - name: Invalidate Cloudfront
+        working-directory: website
+        run: |
+          aws cloudfront create-invalidation \
+          --distribution-id ${{ steps.resources-values.outputs.cloudfront }} \
+          --paths "/index.html"
