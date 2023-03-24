@@ -1,12 +1,13 @@
 import * as cdk from 'aws-cdk-lib';
 import { RemovalPolicy } from 'aws-cdk-lib';
+import { DnsValidatedCertificate } from 'aws-cdk-lib/aws-certificatemanager';
 import { AllowedMethods, CachePolicy, Distribution, OriginAccessIdentity, OriginRequestPolicy, ResponseHeadersPolicy, ViewerProtocolPolicy } from 'aws-cdk-lib/aws-cloudfront';
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { ARecord, HostedZone, IHostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { BlockPublicAccess, Bucket, BucketEncryption, HttpMethods } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
-import { ENVIRONMENT, HOSTED_ZONE_ID, HOSTED_ZONE_NAME, PROJECT_NAME } from '../constants';
+import { AWS_REGION, ENVIRONMENT, HOSTED_ZONE_ID, HOSTED_ZONE_NAME, PROJECT_NAME } from '../constants';
 
 export class InfraStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -30,29 +31,38 @@ export class InfraStack extends cdk.Stack {
 
     websiteBucket.grantRead(originAccessIdentity);
 
-    const cloudfrontDistri: Distribution = new Distribution(
-      this,
-      `${PROJECT_NAME}-${ENVIRONMENT}-cd`,
-      {
-        defaultRootObject: 'index.html',
-        defaultBehavior: {
-          origin: new S3Origin(websiteBucket, {
-            originAccessIdentity: originAccessIdentity
-          }),
-          originRequestPolicy: OriginRequestPolicy.CORS_S3_ORIGIN,
-          viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-          responseHeadersPolicy: ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
-          cachePolicy: CachePolicy.CACHING_OPTIMIZED,
-          allowedMethods: AllowedMethods.ALLOW_ALL,
-        }
-      }
-    );
-
+    let cloudfrontDistri: Distribution;
     if (ENVIRONMENT === 'prod') {
-      const zone: IHostedZone = HostedZone.fromHostedZoneAttributes(this, 'websiteHostedZone', {
-        zoneName: HOSTED_ZONE_NAME,
-        hostedZoneId: HOSTED_ZONE_ID
+
+      const zone: IHostedZone = HostedZone.fromLookup(this, 'HostedZone', {
+        domainName: HOSTED_ZONE_NAME
       });
+
+      const certificate: DnsValidatedCertificate = new DnsValidatedCertificate(this, 'SiteCertificate', {
+        domainName: HOSTED_ZONE_NAME,
+        hostedZone: zone,
+        region: AWS_REGION
+      });
+
+      cloudfrontDistri = new Distribution(
+        this,
+        `${PROJECT_NAME}-${ENVIRONMENT}-cd`,
+        {
+          certificate,
+          domainNames: [HOSTED_ZONE_NAME],
+          defaultRootObject: 'index.html',
+          defaultBehavior: {
+            origin: new S3Origin(websiteBucket, {
+              originAccessIdentity: originAccessIdentity
+            }),
+            originRequestPolicy: OriginRequestPolicy.CORS_S3_ORIGIN,
+            viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+            responseHeadersPolicy: ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
+            cachePolicy: CachePolicy.CACHING_OPTIMIZED,
+            allowedMethods: AllowedMethods.ALLOW_ALL,
+          }
+        }
+      );
 
       new ARecord(this, 'websiteARecord', {
         recordName: HOSTED_ZONE_NAME,
@@ -61,13 +71,35 @@ export class InfraStack extends cdk.Stack {
         ),
         zone
       });
+    } else {
+      cloudfrontDistri = new Distribution(
+        this,
+        `${PROJECT_NAME}-${ENVIRONMENT}-cd`,
+        {
+          defaultRootObject: 'index.html',
+          defaultBehavior: {
+            origin: new S3Origin(websiteBucket, {
+              originAccessIdentity: originAccessIdentity
+            }),
+            originRequestPolicy: OriginRequestPolicy.CORS_S3_ORIGIN,
+            viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+            responseHeadersPolicy: ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
+            cachePolicy: CachePolicy.CACHING_OPTIMIZED,
+            allowedMethods: AllowedMethods.ALLOW_ALL,
+          }
+        }
+      );
     }
+
 
     new cdk.CfnOutput(this, 'websiteBucketName', {
       value: websiteBucket.bucketName
     });
     new cdk.CfnOutput(this, 'cloudFrontDistId', {
       value: cloudfrontDistri.distributionId
+    });
+    new cdk.CfnOutput(this, 'cloudFrontDistDomainName', {
+      value: cloudfrontDistri.distributionDomainName
     });
   }
 }
