@@ -42,7 +42,7 @@ export class InfraStack extends cdk.Stack {
       const certificate: DnsValidatedCertificate = new DnsValidatedCertificate(this, 'SiteCertificate', {
         domainName: HOSTED_ZONE_NAME,
         hostedZone: zone,
-        region: AWS_REGION
+        region: 'us-east-1'
       });
 
       cloudfrontDistri = new Distribution(
