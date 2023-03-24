@@ -5,9 +5,9 @@ import { AllowedMethods, CachePolicy, Distribution, OriginAccessIdentity, Origin
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { ARecord, HostedZone, IHostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
-import { BlockPublicAccess, Bucket, BucketEncryption, HttpMethods } from 'aws-cdk-lib/aws-s3';
+import { BlockPublicAccess, Bucket, BucketEncryption } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
-import { AWS_REGION, ENVIRONMENT, HOSTED_ZONE_ID, HOSTED_ZONE_NAME, PROJECT_NAME } from '../constants';
+import { ENVIRONMENT, HOSTED_ZONE_ID, HOSTED_ZONE_NAME, PROJECT_NAME } from '../constants';
 
 export class InfraStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
