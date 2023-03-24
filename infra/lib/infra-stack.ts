@@ -34,8 +34,9 @@ export class InfraStack extends cdk.Stack {
     let cloudfrontDistri: Distribution;
     if (ENVIRONMENT === 'prod') {
 
-      const zone: IHostedZone = HostedZone.fromLookup(this, 'HostedZone', {
-        domainName: HOSTED_ZONE_NAME
+      const zone: IHostedZone = HostedZone.fromHostedZoneAttributes(this, 'HostedZone', {
+        zoneName: HOSTED_ZONE_NAME,
+        hostedZoneId: HOSTED_ZONE_ID
       });
 
       const certificate: DnsValidatedCertificate = new DnsValidatedCertificate(this, 'SiteCertificate', {
