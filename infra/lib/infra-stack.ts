@@ -98,8 +98,5 @@ export class InfraStack extends cdk.Stack {
     new cdk.CfnOutput(this, 'cloudFrontDistId', {
       value: cloudfrontDistri.distributionId
     });
-    new cdk.CfnOutput(this, 'cloudFrontDistDomainName', {
-      value: cloudfrontDistri.distributionDomainName
-    });
   }
 }
