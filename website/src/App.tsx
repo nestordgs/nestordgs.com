@@ -13,8 +13,8 @@ function App() {
     <TranslationProvider>
       <Menu />
       <Header />
-      <Aptitudes />
       <Experiences />
+      <Aptitudes />
       <Studies />
       <Interests />
       <Footer />
