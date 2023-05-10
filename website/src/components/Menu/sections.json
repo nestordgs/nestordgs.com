@@ -1,11 +1,11 @@
 [
   {
-    "name": "menu.aptitud",
-    "value": "#aptitudes"
-  },
-  {
     "name": "menu.experience",
     "value": "#experience"
+  },
+  {
+    "name": "menu.aptitud",
+    "value": "#aptitudes"
   },
   {
     "name": "menu.studies",
