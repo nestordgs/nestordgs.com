@@ -63,6 +63,7 @@
   "devDependencies": {
     "react-scripts": "^5.0.1",
     "webpack-dev-server": ">=5.2.2",
+    "form-data": ">=3.0.4",
     "brace-expansion": ">=4.0.1"
   }
 }
