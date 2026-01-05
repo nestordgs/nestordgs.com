@@ -1,9 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { TranslationConext } from "../../translations";
-import { ExperienceDescription } from "./ExperienceDescription";
 import { Experiences } from "./Experiences";
 
-describe("<Menu Component />", () => {
+// Mock FontAwesome
+jest.mock("@fortawesome/react-fontawesome", () => ({
+  FontAwesomeIcon: () => <span>Icon</span>,
+    faCalendarAlt: {},
+}));
+
+describe("<Experiences Component />", () => {
   beforeEach(() => {
     render(
       <TranslationConext.Provider value={{ language: "es" }}>
@@ -13,8 +18,12 @@ describe("<Menu Component />", () => {
   });
 
   it("Should Render Title", () => {
-    const experiencesTitle = screen.getByTestId("section-title");
-
+    const experiencesTitle = screen.getByText("experiences.title");
     expect(experiencesTitle).toBeInTheDocument();
+  });
+  
+  it("Should render timeline items", () => {
+      expect(screen.getByText("experiences.tw")).toBeInTheDocument();
+      expect(screen.getByText("experiences.option")).toBeInTheDocument();
   });
 });

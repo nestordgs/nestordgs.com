@@ -2,24 +2,30 @@ import React from "react";
 import { Menu } from "./components/Menu/Menu";
 import { TranslationProvider } from "./translations";
 import { Header } from "./components/Header/Header";
-import { Aptitudes } from "./components/Aptitudes/Aptitudes";
 import { Experiences } from "./components/Experiences";
-import { Studies } from "./components/Studies/Studies";
-import { Interests } from "./components/Interests/Interests";
+
 import { Footer } from "./components/Footer/Footer";
+
+
+import { FeatureProject } from "./components/FeatureProject";
+import { PrinciplesToolkit } from "./components/PrinciplesToolkit";
 
 function App() {
   return (
     <TranslationProvider>
-      <Menu />
-      <Header />
-      <Experiences />
-      <Aptitudes />
-      <Studies />
-      <Interests />
-      <Footer />
+      <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-white overflow-hidden">
+        <Menu />
+        <main>
+          <Header />
+          <Experiences />
+          <FeatureProject />
+          <PrinciplesToolkit />
+        </main>
+        <Footer />
+      </div>
     </TranslationProvider>
   );
 }
+
 
 export default App;

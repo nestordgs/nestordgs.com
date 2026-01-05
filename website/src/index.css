@@ -1,10 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00C7B1;
+  --color-dark: #161920;
+  --color-deep-dark: #0f1115;
+  --color-card: rgba(255, 255, 255, 0.05);
+  
+  --font-sans: 'Inter', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #050505;
+  color: #ffffff;
+  overflow-x: hidden;
 }
 
 code {

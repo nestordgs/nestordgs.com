@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { TranslationConext } from "../../translations";
 import { SwitchLanguage } from "./SwitchLanguage";
 
@@ -17,10 +17,7 @@ describe("<Language Switch Component />", () => {
     });
 
     it("Should render English Language", () => {
-      expect(screen.getByTestId("language-switch")).toHaveAttribute(
-        "data-language",
-        "EN"
-      );
+      expect(screen.getByText("EN")).toBeInTheDocument();
     });
   });
 
@@ -38,10 +35,8 @@ describe("<Language Switch Component />", () => {
     });
 
     it("Should render English Language", () => {
-      expect(screen.getByTestId("language-switch")).toHaveAttribute(
-        "data-language",
-        "ES"
-      );
+       // Since logic is isChecked ? "EN" : "ES", false means "ES"
+      expect(screen.getByText("ES")).toBeInTheDocument();
     });
   });
 });

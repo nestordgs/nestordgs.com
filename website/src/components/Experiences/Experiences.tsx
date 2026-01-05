@@ -1,103 +1,196 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { IExperience } from "./interfaces/intex";
-import { ExperienceTitle } from "../utils/ExperienceTitle";
-import { ExperienceDescription } from "./ExperienceDescription";
-import { ExperienceTabs } from "./ExperienceTabs";
-import { SectionTitle } from "../utils/SectionTitle/SectionTitle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+
+interface IExperience {
+  dateFrom: string;
+  dateTo?: string; // Optional for current job
+  title: string;
+  company: string;
+  description: string;
+  tags?: string[]; // Optional tech stack tags
+}
 
 export const Experiences = () => {
   const { t } = useTranslation();
+  const [showAll, setShowAll] = React.useState(false);
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
+  const prevShowAll = React.useRef(showAll);
+
+  React.useEffect(() => {
+    if (prevShowAll.current && !showAll && buttonRef.current) {
+      buttonRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    prevShowAll.current = showAll;
+  }, [showAll]);
 
   const experiences: IExperience[] = [
     {
-      dateFrom: "07/01/2022",
+      dateFrom: "2022",
+      dateTo: "Present",
       title: "Senior Developer Consultant",
       company: "Thoughtworks",
       description: "experiences.tw",
+      tags: ["React", "NestJS", "VTEX", "CI/CD"]
     },
     {
-      dateFrom: "06/01/2021",
-      dateTo: "06/01/2022",
-      title: "Full Stack Developer",
-      company: "Option SPA",
-      description: "experiences.option",
+        dateFrom: "2021",
+        dateTo: "2022",
+        title: "Full Stack Developer",
+        company: "Option SPA",
+        description: "experiences.option",
+        tags: ["React", "Python", "Flask", "AWS"]
     },
     {
-      dateFrom: "11/01/2019",
-      dateTo: "05/01/2021",
-      title: "Cloud Engineer",
-      company: "Arkotech",
-      description: "experiences.arkho",
+        dateFrom: "2019",
+        dateTo: "2021",
+        company: "Arkho", // Fixed name based on image/context often Arkotech or Arkho
+        title: "Cloud Engineer",
+        description: "experiences.arkho",
+        tags: ["AWS", "Angular", "Lambda", "ETL"]
     },
     {
-      dateFrom: "06/01/2019",
-      dateTo: "11/01/2019",
-      title: "Full Stack Developer",
-      company: "Karibu",
-      description: "experiences.karibu",
+        dateFrom: "2019",
+        dateTo: "2019",
+        company: "Karibu",
+        title: "Full Stack Developer",
+        description: "experiences.karibu",
+        tags: ["Vue", "Node.js", "Firebase", "GCP"]
     },
     {
-      dateFrom: "04/01/2019",
-      dateTo: "05/01/2019",
-      title: "Front End Developer",
-      company: "Ssilva Gestion Inmobiliaria",
-      description: "experiences.ssilva",
+        dateFrom: "2019",
+        dateTo: "2019",
+        company: "Ssilva Gestion Inmobiliaria",
+        title: "Front End Developer",
+        description: "experiences.ssilva",
+        tags: ["Vue.js", "Vuex"]
+    },
+     {
+        dateFrom: "2018",
+        dateTo: "2019",
+        company: "Vendy",
+        title: "Full Stack Engineer",
+        description: "experiences.vendy",
+        tags: ["Node.js", "MySQL", "Express"]
     },
     {
-      dateFrom: "10/01/2018",
-      dateTo: "01/01/2019",
-      title: "Full Stack Engineer",
-      company: "Vendy",
-      description: "experiences.vendy",
-    },
-    {
-      dateFrom: "11/01/2017",
-      dateTo: "07/01/2018",
-      title: "Web Developer",
-      company: "Develoop Software",
-      description: "experiences.develoop",
-    },
+        dateFrom: "2017",
+        dateTo: "2018",
+        company: "Develoop Software",
+        title: "Web Developer",
+        description: "experiences.develoop",
+        tags: ["PHP", "Laravel", "MySQL", "ThreeJS"]
+    }
   ];
 
+  const visibleExperiences = showAll ? experiences : experiences.slice(0, 3);
+
   return (
-    <section className="container pb-5 pt-4 px-xxl-0" id="experience">
-      <SectionTitle text={t("experiences.title")} />
-      <ExperienceTabs experiences={experiences} />
-      <div className="tab-content" id="experiences-tabContent">
-        {experiences.map((experience: IExperience, index: number) => {
-          const { title, company, description } = experience;
-          return (
-            <div
-              className={`tab-pane fade experience-content show ${
-                index === 0 && "active"
-              }`}
-              id={`experience-${company.replaceAll(" ", "-")}`}
-              role="tabpanel"
-              key={`experience-content-${index}`}
-              aria-labelledby={`experience-${company.replaceAll(
-                " ",
-                "-"
-              )}-tab"`}
-            >
-              <div className="card mb-3">
-                <div className="row g-0">
-                  <div className="col-md-4">
-                    <ExperienceTitle
-                      title={title}
-                      numberOfWhiteSpaces={title.split(" ").length}
-                      isActual={!index}
-                    />
-                  </div>
-                  <ExperienceDescription
-                    company={company}
-                    description={description}
-                  />
-                </div>
-              </div>
+    <section className="py-10 md:py-20 bg-dark w-full" id="experience">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="flex flex-col gap-2 mb-8">
+            <div className="flex items-center gap-4">
+                    <div className="h-1 w-12 bg-primary rounded-full" />
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-0">{t("experiences.title")}</h2>
             </div>
-          );
-        })}
+            <p className="text-gray-400 ml-16 max-w-2xl">{t("experiences.subtitle")}</p>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12 ml-4 md:ml-0">
+            {[
+                { label: 'experiences.stats.exp.label', value: 'experiences.stats.exp.value' },
+                { label: 'experiences.stats.teams.label', value: 'experiences.stats.teams.value' },
+                { label: 'experiences.stats.impact.label', value: 'experiences.stats.impact.value' },
+                { label: 'experiences.stats.focus.label', value: 'experiences.stats.focus.value' }
+            ].map((stat, i) => (
+                <div key={i} className="bg-card/50 border border-white/5 p-4 rounded-lg flex flex-col justify-center h-24 hover:bg-card/80 transition-colors">
+                    <span className="text-xs text-gray-500 font-bold tracking-wider mb-1 uppercase">{t(stat.label)}</span>
+                    <span className="text-xl md:text-2xl font-bold text-white">{t(stat.value)}</span>
+                </div>
+            ))}
+        </div>
+
+        <div className="relative space-y-12">
+            {/* Main Vertical Line */}
+            <div className="absolute left-[130px] md:left-[220px] top-4 bottom-4 w-px bg-white/10 hidden md:block" />
+
+            {visibleExperiences.map((exp, index) => (
+                <div key={`${index}-${exp.title}`} className="flex flex-col md:grid md:grid-cols-[220px_1fr] gap-8 relative group">
+                    {/* Left Column: Date (Desktop Only) */}
+                    <div className="hidden md:block text-right pt-2 pr-12 relative">
+                        <div className="text-gray-400 font-mono font-medium text-base">
+                        {exp.dateFrom} — {exp.dateTo || 'Present'}
+                        </div>
+                        {index === 0 && (
+                            <div className="text-primary text-xs font-bold mt-1 uppercase tracking-wider">
+                                {t('experiences.actual')} Role
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Timeline Dot (Desktop Only) */}
+                    <div className={`hidden md:block absolute left-[220px] -translate-x-1/2 top-3 w-4 h-4 rounded-full border-2 z-10 box-content transition-all duration-300 ${
+                        index === 0 
+                        ? 'bg-dark border-primary ring-4 ring-primary/20 shadow-[0_0_15px_rgba(0,199,177,0.4)]' 
+                        : 'bg-dark border-gray-600 group-hover:border-primary group-hover:scale-125'
+                    }`} />
+                    
+                    {/* Right Column: Content Card */}
+                    <div className="bg-card backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:border-primary/30 transition-all duration-300 relative">
+                        
+                        {/* Mobile Date & Role (Visible only on mobile) */}
+                        <div className="md:hidden mb-4 border-b border-white/5 pb-4">
+                            <div className="flex items-center justify-between">
+                                <span className="text-primary text-sm font-mono font-bold">
+                                    {exp.dateFrom} — {exp.dateTo || 'Present'}
+                                </span>
+                                {index === 0 && (
+                                    <span className="bg-primary/20 text-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
+                                        {t('experiences.actual')} Role
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col mb-4 gap-1">
+                            <div className="flex justify-between items-start">
+                                <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{exp.title}</h3>
+                            </div>
+                            <h4 className="text-lg text-gray-400 font-medium">{exp.company}</h4>
+                        </div>
+                        
+                        <p className="text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
+                            {t(exp.description)}
+                        </p>
+
+                        {exp.tags && (
+                            <div className="flex flex-wrap gap-2">
+                                {exp.tags.map(tag => (
+                                    <span key={tag} className="text-xs font-medium text-primary/80 bg-primary/5 px-3 py-1.5 rounded-full border border-primary/10">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <div className="flex justify-center mt-12 pl-4 md:pl-12">
+            <button 
+                ref={buttonRef}
+                onClick={() => setShowAll(!showAll)}
+                className="flex items-center gap-2 px-8 py-3 bg-white/5 text-white font-medium rounded-lg border border-white/10 hover:bg-white/10 hover:text-primary hover:border-primary/30 transition-all group"
+            >
+                <span>{showAll ? t('experiences.view_less') : t('experiences.view_more')}</span>
+                <FontAwesomeIcon 
+                    icon={showAll ? faChevronUp : faChevronDown} 
+                    className={`text-sm transition-transform duration-300 ${showAll ? '' : 'group-hover:translate-y-1'}`}
+                />
+            </button>
+        </div>
       </div>
     </section>
   );

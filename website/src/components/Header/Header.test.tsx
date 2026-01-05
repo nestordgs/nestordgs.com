@@ -2,14 +2,13 @@ import { render, screen } from "@testing-library/react";
 import { TranslationConext } from "../../translations";
 import { Header } from "./Header";
 
+// Mock FontAwesome to avoid issues in tests if not configured
+jest.mock("@fortawesome/react-fontawesome", () => ({
+  FontAwesomeIcon: () => <span>Icon</span>,
+}));
+
 describe("<Header Component />", () => {
   beforeEach(() => {
-    HTMLCanvasElement.prototype.getContext = jest.fn().mockReturnValue({
-      clearRect: jest.fn(),
-      moveTo: jest.fn(),
-      lineTo: jest.fn(),
-      stroke: jest.fn(),
-    });
     render(
       <TranslationConext.Provider value={{ language: "es" }}>
         <Header />
@@ -17,18 +16,18 @@ describe("<Header Component />", () => {
     );
   });
 
-  it("Should render canvas", () => {
-    const canvasBg = screen.getByTestId("canvas-grid-bg");
-    expect(canvasBg).toBeInTheDocument();
+  it("Should render main title", () => {
+    // We look for parts of the title since it's split into multiple spans
+    expect(screen.getByText(/Engineering/i)).toBeInTheDocument();
+    expect(screen.getByText(/Scalable/i)).toBeInTheDocument();
   });
 
-  it("Should render letter N component", () => {
-    const letterNComponent = screen.getByRole("letter-n");
-    expect(letterNComponent).toBeInTheDocument();
+  it("Should render subtitle key", () => {
+    expect(screen.getByText("header.subtitle")).toBeInTheDocument();
   });
 
-  it("Should Have text aptitudes", () => {
-    expect(screen.getByText("aptitudes.im")).toBeInTheDocument();
-    expect(screen.getByText("aptitudes.description")).toBeInTheDocument();
+  it("Should render cards", () => {
+    expect(screen.getByText("header.cards.cloud.title")).toBeInTheDocument();
+    expect(screen.getByText("header.cards.financial.title")).toBeInTheDocument();
   });
 });

@@ -1,6 +1,9 @@
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTerminal } from "@fortawesome/free-solid-svg-icons";
+// import logo from "../../logo.svg";
 
 import sections from "./sections.json";
 import { TranslationConext } from "../../translations";
@@ -9,12 +12,13 @@ import { SwitchLanguage } from "../SwitchLanguage/SwitchLanguage";
 export const Menu = () => {
   const { language, changeLanguage } = useContext(TranslationConext);
   const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleLanguage = (e: any) => {
-    if (e.target.checked) {
-      changeLanguage("en");
+  const handleLanguage = () => {
+    if (language === "es") {
+       changeLanguage("en");
     } else {
-      changeLanguage("es");
+       changeLanguage("es");
     }
   };
 
@@ -23,58 +27,79 @@ export const Menu = () => {
   }, [language]);
 
   return (
-    <header
-      className="navbar navbar-expand-lg py-4 sticky-top bg-dark-nestordgs"
-      data-testid="header-page"
-    >
-      <div className="container px-xxl-0">
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+    <header className="fixed top-0 left-0 z-50 w-full bg-deep-dark/80 backdrop-blur-md border-b border-white/5 supports-[backdrop-filter]:bg-deep-dark/50">
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <nav className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <a href="/" className="flex items-center gap-2" data-testid="logo">
+                <span className="font-mono font-bold text-xl tracking-tight text-white flex items-center gap-2">
+                    <FontAwesomeIcon icon={faTerminal} className="text-primary" />
+                    nestordgs
+                </span>
+            </a>
+
+            {/* Desktop Menu - Centered */}
+            <div className="hidden md:flex absolute left-1/2 -translate-x-1/2">
+                <ul className="flex items-center gap-8 list-none m-0 p-0">
+                    {sections.filter(s => s.name !== 'menu.blog').map((section) => (
+                        <li key={section.name}>
+                            <a 
+                                href={section.value}
+                                className="text-sm font-semibold text-gray-200 hover:text-white hover:font-bold transition-all duration-300"
+                            >
+                                {t(section.name)}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            {/* Language Switch - Right */}
+            <div className="hidden md:flex items-center">
+                <SwitchLanguage
+                    label={`${language.toUpperCase()}`}
+                    isChecked={language === "en"}
+                    onClick={handleLanguage}
+                />
+            </div>
+
+        {/* Mobile Toggle */}
+        <button 
+            className="md:hidden text-white"
+            onClick={() => setIsOpen(!isOpen)}
         >
-          <span className="navbar-toggler-icon"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
         </button>
-        <a className="navbar-brand" href="/" data-testid="logo">
-          <img
-            src="../assets/logo.png"
-            alt="Nestor Gutierrez"
-            className="img-fluid size-logo-menu"
-          />
-        </a>
-        <div className="form-check form-switch">
-          <SwitchLanguage
-            label={`${language.toUpperCase()}`}
-            isChecked={language === "en" ? true : false}
-            onClick={handleLanguage}
-          />
-        </div>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul
-            data-testid="menu-component"
-            className="navbar-nav ms-auto me-4 mb-2 mb-lg-0"
-          >
-            {sections.map((section) => {
-              return (
-                <li className="nav-item" key={`section-${section.name}`}>
-                  <a
-                    className="nav-link active"
-                    aria-current="page"
-                    href={section.value}
-                  >
-                    {t(`${section.name}`)}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+
+         {/* Mobile Menu Dropdown */}
+         { isOpen && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-[#111] border border-white/10 rounded-xl p-4 flex flex-col gap-4 shadow-2xl md:hidden">
+                <ul className="flex flex-col gap-4 list-none m-0 p-0">
+                    {sections.filter(s => s.name !== 'menu.blog').map((section) => (
+                        <li key={section.name}>
+                            <a 
+                                href={section.value}
+                                className="block text-gray-200 font-semibold hover:text-primary hover:font-bold transition-all duration-300"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {t(section.name)}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+                <div className="pt-4 border-t border-white/10">
+                     <SwitchLanguage
+                        label={`${language.toUpperCase()}`}
+                        isChecked={language === "en"}
+                        onClick={handleLanguage}
+                    />
+                </div>
+            </div>
+         )}
+      </nav>
       </div>
-      <span className="menu-color-bar bg-menu-color-bar" />
     </header>
   );
 };
