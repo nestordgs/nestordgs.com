@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
+import { vi } from "vitest";
 import { TranslationConext } from "../../translations";
 import { Header } from "./Header";
 
 // Mock FontAwesome to avoid issues in tests if not configured
-jest.mock("@fortawesome/react-fontawesome", () => ({
+vi.mock("@fortawesome/react-fontawesome", () => ({
   FontAwesomeIcon: () => <span>Icon</span>,
 }));
 

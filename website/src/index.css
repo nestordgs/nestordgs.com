@@ -1,19 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
+@variant dark (.dark &);
+
 @theme {
-  --color-primary: #00C7B1;
+  --color-primary: #00c7b1;
   --color-dark: #161920;
   --color-deep-dark: #0f1115;
   --color-card: rgba(255, 255, 255, 0.05);
-  
-  --font-sans: 'Inter', sans-serif;
-}
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  --font-sans: "Inter", sans-serif;
+}
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #050505;
@@ -22,6 +23,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

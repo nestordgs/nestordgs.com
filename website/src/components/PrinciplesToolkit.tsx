@@ -7,30 +7,30 @@ export const PrinciplesToolkit = () => {
     const { t } = useTranslation();
 
     return (
-        <section className="py-20 bg-deep-dark- w-full" id="profile">
+        <section className="py-20 bg-white dark:bg-deep-dark w-full transition-colors duration-300" id="profile">
             <div className="max-w-6xl mx-auto md:px-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 px-4">
                     
                     {/* Left Column: Philosophy & Bio */}
                     <div className="flex flex-col justify-center space-y-12">
                         <div className="space-y-6">
-                            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight">
                                 {t("principles.title")}
                             </h2>
-                            <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
+                            <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-lg">
                             {t("principles.description")}
                             </p>
                         </div>
 
                         <div className="space-y-4">
                             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest">{t("principles.education.title")}</h3>
-                            <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 hover:border-primary/30 transition-colors group">
+                            <div className="bg-gray-50 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-xl p-6 flex items-start gap-4 hover:border-primary/30 transition-colors group">
                                 <div className="p-3 bg-primary/10 rounded-lg text-primary group-hover:scale-110 transition-transform duration-300">
                                     <FontAwesomeIcon icon={faGraduationCap} className="text-xl" />
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-bold text-white">{t("principles.education.degree")}</h4>
-                                    <p className="text-gray-400 text-sm mt-1">{t("principles.education.university")}</p>
+                                    <h4 className="text-xl font-bold text-gray-900 dark:text-white">{t("principles.education.degree")}</h4>
+                                    <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">{t("principles.education.university")}</p>
                                 </div>
                             </div>
                         </div>
@@ -39,33 +39,33 @@ export const PrinciplesToolkit = () => {
                     {/* Right Column: Toolkit Bento Grid */}
                     <div className="grid grid-cols-2 gap-4">
                         {/* Frontend Mastery - Large Block */}
-                        <div className="col-span-2 bg-dark-lighter border border-white/5 p-6 rounded-2xl relative overflow-hidden group hover:border-primary/30 transition-all">
+                        <div className="col-span-2 bg-gray-50 dark:bg-white/5 border border-black/5 dark:border-white/5 p-6 rounded-2xl relative overflow-hidden group hover:border-primary/30 transition-all">
                             <div className="absolute top-0 right-0 p-32 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-all" />
                             <div className="relative z-10">
                                 <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary mb-4">
                                     <FontAwesomeIcon icon={faCode} />
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2">{t("principles.toolkit.frontend.title")}</h3>
-                                <p className="text-gray-400 text-sm">{t("principles.toolkit.frontend.desc")}</p>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t("principles.toolkit.frontend.title")}</h3>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">{t("principles.toolkit.frontend.desc")}</p>
                             </div>
                         </div>
 
                         {/* Tech Stack Small Blocks */}
-                        <div className="bg-dark-lighter border border-white/5 p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/30 transition-all group">
+                        <div className="bg-gray-50 dark:bg-white/5 border border-black/5 dark:border-white/5 p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/30 transition-all group">
                             <FontAwesomeIcon icon={faNodeJs} className="text-3xl text-green-500 group-hover:scale-110 transition-transform" />
-                            <span className="text-gray-300 font-medium text-sm">Node.js</span>
+                            <span className="text-gray-700 dark:text-gray-300 font-medium text-sm">Node.js</span>
                         </div>
-                        <div className="bg-dark-lighter border border-white/5 p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/30 transition-all group">
+                        <div className="bg-gray-50 dark:bg-white/5 border border-black/5 dark:border-white/5 p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/30 transition-all group">
                             <FontAwesomeIcon icon={faAws} className="text-3xl text-orange-500 group-hover:scale-110 transition-transform" />
-                            <span className="text-gray-300 font-medium text-sm">AWS</span>
+                            <span className="text-gray-700 dark:text-gray-300 font-medium text-sm">AWS</span>
                         </div>
-                        <div className="bg-dark-lighter border border-white/5 p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/30 transition-all group">
+                        <div className="bg-gray-50 dark:bg-white/5 border border-black/5 dark:border-white/5 p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/30 transition-all group">
                             <FontAwesomeIcon icon={faDatabase} className="text-3xl text-blue-400 group-hover:scale-110 transition-transform" />
-                            <span className="text-gray-300 font-medium text-sm">SQL</span>
+                            <span className="text-gray-700 dark:text-gray-300 font-medium text-sm">SQL</span>
                         </div>
-                        <div className="bg-dark-lighter border border-white/5 p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/30 transition-all group">
+                        <div className="bg-gray-50 dark:bg-white/5 border border-black/5 dark:border-white/5 p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/30 transition-all group">
                             <FontAwesomeIcon icon={faDocker} className="text-3xl text-blue-500 group-hover:scale-110 transition-transform" />
-                            <span className="text-gray-300 font-medium text-sm">Docker</span>
+                            <span className="text-gray-700 dark:text-gray-300 font-medium text-sm">Docker</span>
                         </div>
 
                         {/* Current Focus - Wide Block */}

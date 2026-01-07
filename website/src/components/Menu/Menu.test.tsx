@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
+import { vi } from "vitest";
 import { TranslationConext } from "../../translations";
 import { Menu } from "./Menu";
 
 // Mock logo import
-jest.mock("../../logo.svg", () => "logo.svg");
+vi.mock("../../logo.svg", () => "logo.svg");
 
 describe("<Menu Component />", () => {
   beforeEach(() => {

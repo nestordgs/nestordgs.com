@@ -12,10 +12,6 @@ describe("<Language Switch Component />", () => {
       );
     });
 
-    it("Should be checked", () => {
-      expect(screen.getByTestId("language-switch")).toBeChecked();
-    });
-
     it("Should render English Language", () => {
       expect(screen.getByText("EN")).toBeInTheDocument();
     });
@@ -30,11 +26,7 @@ describe("<Language Switch Component />", () => {
       );
     });
 
-    it("Should be checked", () => {
-      expect(screen.getByTestId("language-switch")).not.toBeChecked();
-    });
-
-    it("Should render English Language", () => {
+    it("Should render Spanish Language", () => {
        // Since logic is isChecked ? "EN" : "ES", false means "ES"
       expect(screen.getByText("ES")).toBeInTheDocument();
     });

@@ -13,7 +13,7 @@ import { PrinciplesToolkit } from "./components/PrinciplesToolkit";
 function App() {
   return (
     <TranslationProvider>
-      <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-white overflow-hidden">
+      <div className="min-h-screen bg-white dark:bg-dark text-gray-900 dark:text-white selection:bg-primary selection:text-white overflow-hidden transition-colors duration-300">
         <Menu />
         <main>
           <Header />

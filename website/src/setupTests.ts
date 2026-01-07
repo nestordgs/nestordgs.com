@@ -3,9 +3,9 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
-import 'jest-canvas-mock';
+import { vi } from 'vitest';
 
-jest.mock('react-i18next', () => ({
+vi.mock('react-i18next', () => ({
   useTranslation: () => {
     return {
       t: (str: string) => str,
@@ -17,6 +17,9 @@ jest.mock('react-i18next', () => ({
   }
 }))
 
-jest.mock('i18next', () => ({
+vi.mock('i18next', () => ({
+  default: {
+    changeLanguage: () => new Promise(() => { }),
+  },
   changeLanguage: () => new Promise(() => { }),
 }))
