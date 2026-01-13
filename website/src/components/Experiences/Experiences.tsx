@@ -29,56 +29,56 @@ export const Experiences = () => {
     {
       dateFrom: "2022",
       dateTo: "Present",
-      title: "Senior Developer Consultant",
-      company: "Thoughtworks",
+      title: "experiences.jobs.tw.title",
+      company: "experiences.jobs.tw.company",
       description: "experiences.tw",
-      tags: ["React", "NestJS", "VTEX", "CI/CD"]
+      tags: ["NestJS", "React", "Kafka", "GCP", "Firestore", "GitHub Actions", "CI/CD"]
     },
     {
         dateFrom: "2021",
         dateTo: "2022",
-        title: "Full Stack Developer",
-        company: "Option SPA",
+        title: "experiences.jobs.option.title",
+        company: "experiences.jobs.option.company",
         description: "experiences.option",
-        tags: ["React", "Python", "Flask", "AWS"]
+        tags: ["React", "Python", "Flask", "AWS", "Docker"]
     },
     {
         dateFrom: "2019",
         dateTo: "2021",
-        company: "Arkho", // Fixed name based on image/context often Arkotech or Arkho
-        title: "Cloud Engineer",
+        company: "experiences.jobs.arkho.company",
+        title: "experiences.jobs.arkho.title",
         description: "experiences.arkho",
         tags: ["AWS", "Angular", "Lambda", "ETL"]
     },
     {
         dateFrom: "2019",
         dateTo: "2019",
-        company: "Karibu",
-        title: "Full Stack Developer",
+        company: "experiences.jobs.karibu.company",
+        title: "experiences.jobs.karibu.title",
         description: "experiences.karibu",
         tags: ["Vue", "Node.js", "Firebase", "GCP"]
     },
     {
         dateFrom: "2019",
         dateTo: "2019",
-        company: "Ssilva Gestion Inmobiliaria",
-        title: "Front End Developer",
+        company: "experiences.jobs.ssilva.company",
+        title: "experiences.jobs.ssilva.title",
         description: "experiences.ssilva",
         tags: ["Vue.js", "Vuex"]
     },
      {
         dateFrom: "2018",
         dateTo: "2019",
-        company: "Vendy",
-        title: "Full Stack Engineer",
+        company: "experiences.jobs.vendy.company",
+        title: "experiences.jobs.vendy.title",
         description: "experiences.vendy",
         tags: ["Node.js", "MySQL", "Express"]
     },
     {
         dateFrom: "2017",
         dateTo: "2018",
-        company: "Develoop Software",
-        title: "Web Developer",
+        company: "experiences.jobs.develoop.company",
+        title: "experiences.jobs.develoop.title",
         description: "experiences.develoop",
         tags: ["PHP", "Laravel", "MySQL", "ThreeJS"]
     }
@@ -99,13 +99,13 @@ export const Experiences = () => {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12 ml-4 md:ml-0">
             {[
-                { label: 'experiences.stats.exp.label', value: 'experiences.stats.exp.value' },
-                { label: 'experiences.stats.teams.label', value: 'experiences.stats.teams.value' },
-                { label: 'experiences.stats.impact.label', value: 'experiences.stats.impact.value' },
-                { label: 'experiences.stats.focus.label', value: 'experiences.stats.focus.value' }
+                { value: 'experiences.stats.exp.value' },
+                { value: 'experiences.stats.teams.value' },
+                { value: 'experiences.stats.impact.value' },
+                { value: 'experiences.stats.focus.value' }
             ].map((stat, i) => (
                 <div key={i} className="bg-gray-50 dark:bg-card/50 border border-black/5 dark:border-white/5 p-4 rounded-lg flex flex-col justify-center h-24 hover:bg-gray-100 dark:hover:bg-card/80 transition-colors">
-                    <span className="text-xs text-gray-500 font-bold tracking-wider mb-1 uppercase">{t(stat.label)}</span>
+                    {/* <span className="text-xs text-gray-500 font-bold tracking-wider mb-1 uppercase">{t(stat.label)}</span> */}
                     <span className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{t(stat.value)}</span>
                 </div>
             ))}
@@ -120,7 +120,7 @@ export const Experiences = () => {
                     {/* Left Column: Date (Desktop Only) */}
                     <div className="hidden md:block text-right pt-2 pr-12 relative">
                         <div className="text-gray-500 dark:text-gray-400 font-mono font-medium text-base">
-                        {exp.dateFrom} — {exp.dateTo || 'Present'}
+                        {exp.dateFrom} — {exp.dateTo === 'Present' ? t('experiences.present') : exp.dateTo}
                         </div>
                         {index === 0 && (
                             <div className="text-primary dark:text-primary font-bold mt-1 uppercase tracking-wider" style={{fontSize: '0.65rem'}}>
@@ -143,7 +143,7 @@ export const Experiences = () => {
                         <div className="md:hidden mb-4 border-b border-black/5 dark:border-white/5 pb-4">
                             <div className="flex items-center justify-between">
                                 <span className="text-primary text-sm font-mono font-bold">
-                                    {exp.dateFrom} — {exp.dateTo || 'Present'}
+                                    {exp.dateFrom} — {exp.dateTo === 'Present' ? t('experiences.present') : exp.dateTo}
                                 </span>
                                 {index === 0 && (
                                     <span className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider border border-primary/20">
@@ -155,12 +155,12 @@ export const Experiences = () => {
 
                         <div className="flex flex-col mb-4 gap-1">
                             <div className="flex justify-between items-start">
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors">{exp.title}</h3>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors">{t(exp.title)}</h3>
                             </div>
-                            <h4 className="text-lg text-gray-600 dark:text-gray-400 font-medium">{exp.company}</h4>
+                            <h4 className="text-lg text-gray-600 dark:text-gray-400 font-medium">{t(exp.company)}</h4>
                         </div>
                         
-                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
+                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-sm md:text-base whitespace-pre-line">
                             {t(exp.description)}
                         </p>
 

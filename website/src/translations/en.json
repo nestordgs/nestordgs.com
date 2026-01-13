@@ -12,26 +12,33 @@
       "connect": "Connect"
     },
     "header": {
-      "title": "Engineering Scalable\nTechnical Architectures",
-      "subtitle": "Senior Full Stack Engineer dedicated to building high-performance, scalable systems.",
+      "hero": {
+        "prefix": "Software Engineer",
+        "highlight": "Cloud",
+        "suffix": "Consultant"
+      },
+      "subtitle": "Driving technical innovation and team efficiency through Serverless architectures, Full Stack development, and Agile methodologies.",
       "cta_experience": "View Experience",
       "cta_contact": "Contact",
+      "badges": {
+        "system_design": "System Design"
+      },
       "cards": {
         "cloud": {
-          "title": "Cloud Architecture (AWS)",
-          "desc": "Designing resilient cloud native systems using AWS services."
+          "title": "Cloud Native & Serverless",
+          "desc": "AWS & GCP, Lambda, DynamoDB, and other serverless services."
         },
         "financial": {
-          "title": "Financial Infrastructure",
-          "desc": "Building secure and reliable fintech solutions."
+          "title": "Frontend Architecture",
+          "desc": "ReactJS, Angular, Vue 3."
         },
         "apis": {
-          "title": "Account APIs",
-          "desc": "Developing high-performance APIs for user management."
+          "title": "Backend & APIs",
+          "desc": "NestJS, Node.js, Python Flask."
         },
         "outsourcing": {
-          "title": "Outsourcing",
-          "desc": "Leading engineering teams and delivering value."
+          "title": "DevOps & CI/CD",
+          "desc": "GitHub Actions, Docker, Kubernetes."
         }
       }
     },
@@ -64,25 +71,52 @@
       "subtitle": "Consulting roles focused on delivery, cloud, and scalable systems.",
       "stats": {
         "exp": {
-          "label": "PRODUCTION EXPERIENCE",
-          "value": "8+ Years"
+          "value": "10+ Years"
         },
         "teams": {
-          "label": "TEAMS LED",
-          "value": "5+ Teams"
+          "value": "Cloud Expert"
         },
         "impact": {
-          "label": "CODEBASE IMPACT",
-          "value": "High Scale"
+          "value": "Senior Consultant"
         },
         "focus": {
-          "label": "FOCUS",
-          "value": "Outcome Driven"
+          "value": "Full Stack"
         }
       },
       "actual": "Current",
-      "tw": "I developed applications using NestJs for the backend and React for the frontend, integrating the VTEX ecommerce platform into one of the projects. Additionally, I collaborated in the creation of a web chat application for the Todo Mejora Foundation, using React JS for the frontend and Firestore for data storage. In this project, I also made modifications to a cloud function responsible for receiving and sending messages. Moreover, I worked on improving the deployment flow, automating the task of creating environment tags through GitHub Actions. As a Senior Developer Consultant, I participated in technical decision-making and led the team in implementing efficient solutions.",
-      "option": "I worked as a Full Stack Developer on a project for a mining company. In this project, I developed web applications using ReactJS as the Front-end library, which displayed information about the company's assets. The application includes the generation of dashboards to display the information processed by the ETLs. At the Back-end level, I used Docker container along with the Python Flask framework to generate an API orchestrated by Fargate in AWS. In addition, the Back-end application also served as a maintainer and viewer of the dashboard.",
+      "present": "Present",
+      "jobs": {
+        "tw": {
+          "title": "Senior Developer Consultant",
+          "company": "Thoughtworks"
+        },
+        "option": {
+          "title": "Full Stack Developer",
+          "company": "Option SPA"
+        },
+        "arkho": {
+          "title": "Cloud Engineer",
+          "company": "Arkho"
+        },
+        "karibu": {
+          "title": "Full Stack Developer",
+          "company": "Karibu"
+        },
+        "ssilva": {
+          "title": "Front End Developer",
+          "company": "Ssilva Gestion Inmobiliaria"
+        },
+        "vendy": {
+          "title": "Full Stack Engineer",
+          "company": "Vendy"
+        },
+        "develoop": {
+          "title": "Web Developer",
+          "company": "Develoop Software"
+        }
+      },
+      "tw": "Digital Ecosystem Modernization & Event-Driven Architecture Acting as a technical consultant driving the evolution of critical platforms for enterprise clients. \n• Scalable Architecture: Designing and implementing robust microservices with NestJS and event-driven architectures using Kafka for large-scale data processing. \n • System Integration: Delivering Full Stack solutions (ReactJS) integrated with complex e-commerce platforms (VTEX), optimizing the user transactional experience. \n • DevOps Leadership: Standardizing CI/CD pipelines with GitHub Actions and Semantic Versioning, reducing time-to-market and ensuring reliable deployments across multiple environments.",
+      "option": "High-Availability Solutions for the Mining Industry Developing industrial software focused on the visualization and management of critical assets. \n• Data Visualization: Building high-performance ReactJS dashboards for real-time monitoring of mining operations. \n• Cloud Infrastructure: Orchestrating RESTful APIs in Python (Flask), containerized with Docker and deployed on AWS Fargate, ensuring high availability and fault tolerance.",
       "arkho": "During my work experience, I have developed skills in web application development using technologies such as Angular v7/8 and databases in RDS. I have also participated in the creation of ETL using a variety of AWS services including Lambda, Step Functions, Athena, Glue, SQS, Redshift, and S3. Additionally, I have implemented chatbots for web pages, where I have worked on styling configuration and creating lambdas responsible for maintenance, using Elastic Search for data storage. Finally, I have developed an integration between systems to generate reports and progress notifications for projects through an external API. These skills have allowed me to be successful in complex projects and a high-pressure environment.",
       "karibu": "As a Full Stack Developer, I developed web applications using the Nuxt Front-end framework, and in the backend, I used NodeJs with Express to create RESTful APIs. I implemented secure storage of credentials and information on the Front-end using the Vuex library and used Firebase for user authentication and Front-end deployment of the application. I also deployed the backend on Google Cloud Platform (GCP) and used the GCP database to store the application data.",
       "ssilva": "I worked as a Frontend Developer on a web system project for a real estate company, where I developed components using the VueJs framework and used the Vuex library to implement secure access credentials storage on the Front-end layer. I also configured and used Axios for communication between the Front-end and Back-end layers.",
