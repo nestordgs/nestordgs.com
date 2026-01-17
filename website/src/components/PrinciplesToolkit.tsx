@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faTerminal, faDatabase, faMicrochip, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faDatabase, faMicrochip, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { faAws, faDocker, faNodeJs } from "@fortawesome/free-brands-svg-icons";
 
 export const PrinciplesToolkit = () => {
@@ -45,8 +45,8 @@ export const PrinciplesToolkit = () => {
                                 <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary mb-4">
                                     <FontAwesomeIcon icon={faCode} />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t("principles.toolkit.frontend.title")}</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">{t("principles.toolkit.frontend.desc")}</p>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t("principles.toolkit.stack.title")}</h3>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">{t("principles.toolkit.stack.desc")}</p>
                             </div>
                         </div>
 

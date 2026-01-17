@@ -9,7 +9,8 @@
       "studies": "Studies",
       "concerns": "Interests",
       "contact": "Contact",
-      "connect": "Connect"
+      "connect": "Connect",
+      "about": "About"
     },
     "header": {
       "hero": {
@@ -43,21 +44,21 @@
       }
     },
     "principles": {
-      "title": "More than just code.",
-      "description": "I believe technology should empower people, not complicate their lives. My philosophy is rooted in Clean Code, User Centricity, and continuous learning. When I’m not debugging distributed systems, I’m contributing to open source or writing technical articles to help the next generation of developers.",
+      "title": "Principles & Toolkit",
+      "description": "As a Full Stack Engineer and Consultant, my focus goes beyond writing code; I specialize in designing resilient, scalable, and cost-efficient architectures. I am passionate about solving complex technical challenges through event-driven system design, strategic use of Serverless services, and high-performance interfaces. I am committed to delivering high-quality software built on Clean Code, observability, and a clear vision of business success.",
       "education": {
         "title": "EDUCATION",
-        "degree": "BS Computer Science",
-        "university": "University of Tech • 2014-2018"
+        "degree": "B.S. in Computer Engineering",
+        "university": "Colegio Universitario de Caracas • 2010 - 2014"
       },
       "toolkit": {
-        "frontend": {
-          "title": "Frontend Mastery",
-          "desc": "React, Vue, TailwindCSS, Astro, TypeScript, WebGL"
+        "stack": {
+          "title": "Core Tech Stack",
+          "desc": "Node.js (NestJS), Python (Flask/FastAPI), React, Angular, Vue, TypeScript, SQL/NoSQL (DynamoDB, Firestore, Postgres)."
         },
         "focus": {
           "title": "CURRENT FOCUS",
-          "topic": "Exploring WebAssembly"
+          "topic": "Serverless Architectures, Event-Driven & AI Agents"
         }
       }
     },

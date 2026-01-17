@@ -9,7 +9,8 @@
       "studies": "Estudios",
       "concerns": "Intereses",
       "contact": "Contacto",
-      "connect": "Conectar"
+      "connect": "Conectar",
+      "about": "Sobre mí"
     },
     "aptitudes": {
       "title": "Aptitudes",
@@ -48,21 +49,21 @@
       }
     },
     "principles": {
-      "title": "Más que solo código.",
-      "description": "Creo que la tecnología debe empoderar a las personas, no complicar sus vidas. Mi filosofía se basa en el Código Limpio, la User Centricity y el aprendizaje continuo. Cuando no estoy depurando sistemas distribuidos, contribuyo al código abierto o escribo artículos técnicos para ayudar a la próxima generación de desarrolladores.",
+      "title": "Principios y Herramientas",
+      "description": "Como Ingeniero Full Stack y Consultor, mi enfoque trasciende la escritura de código; me especializo en diseñar arquitecturas resilientes, escalables y rentables. Me apasiona resolver desafíos técnicos complejos mediante el diseño de sistemas orientados a eventos, el uso estratégico de servicios Serverless y la creación de interfaces de alto rendimiento. Mi compromiso es entregar software de alta calidad basado en Clean Code, observabilidad y una visión clara del éxito del negocio.",
       "education": {
         "title": "EDUCACIÓN",
         "degree": "Ingeniería Informática",
-        "university": "Universidad Tecnológica • 2014-2018"
+        "university": "Colegio Universitario de Caracas • 2010 - 2014"
       },
       "toolkit": {
-        "frontend": {
-          "title": "Maestría Frontend",
-          "desc": "React, Vue, TailwindCSS, Astro, TypeScript, WebGL"
+        "stack": {
+          "title": "Ecosistema Técnico",
+          "desc": "Node.js (NestJS), Python (Flask/FastAPI), React, Angular, Vue, TypeScript, SQL/NoSQL (DynamoDB, Firestore, Postgres)."
         },
         "focus": {
           "title": "FOCO ACTUAL",
-          "topic": "Explorando WebAssembly"
+          "topic": "Arquitecturas Serverless, Event-Driven y Agentes de IA"
         }
       }
     },

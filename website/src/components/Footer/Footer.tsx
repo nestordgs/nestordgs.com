@@ -1,5 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
+import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub, faDev } from "@fortawesome/free-brands-svg-icons";
@@ -14,13 +15,15 @@ const ConnectCard = ({ icon, label, href }: { icon: any, label: string, href: st
 );
 
 export const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="w-full bg-gray-50 dark:bg-deep-dark py-10 pb-5 transition-colors duration-300" id="connect">
       <div className="container max-w-6xl mx-auto px-4 md:px-0">
         <div className="flex flex-col items-center text-center space-y-12">
             
             <div className="space-y-4">
-                    <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Connect</h2>
+                    <h2 className="text-4xl font-bold text-gray-900 dark:text-white">{t('menu.connect')}</h2>
                     <p className="text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
                         Feel free to reach out for collaborations, questions, or just to say hi.
                     </p>
@@ -56,13 +59,10 @@ export const Footer = () => {
                         </p>
                         <div className="flex items-center gap-6">
                             <a href="#experience" className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm transition-colors">
-                                Experience
+                                {t('menu.experience')}
                             </a>
                             <a href="#projects" className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm transition-colors">
-                                Featured Project
-                            </a>
-                            <a href="#profile" className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm transition-colors">
-                                About
+                                {t('menu.projects')}
                             </a>
                         </div>
                     </div>
