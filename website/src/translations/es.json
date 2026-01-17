@@ -102,28 +102,18 @@
           "title": "Desarrollador Full Stack",
           "company": "Karibu"
         },
-        "ssilva": {
-          "title": "Desarrollador Front End",
-          "company": "Ssilva Gestión Inmobiliaria"
-        },
-        "vendy": {
-          "title": "Ingeniero Full Stack",
-          "company": "Vendy"
-        },
-        "develoop": {
-          "title": "Desarrollador Web",
-          "company": "Develoop Software"
+        "early_career": {
+          "title": "Desarrollador Full Stack",
+          "company": "Early Career & Foundations"
         }
       },
-      "tw": "Modernización de Ecosistemas Digitales & Arquitectura Event-Driven Como consultor técnico, lidero la evolución de plataformas críticas para clientes empresariales. \n • Arquitectura Escalable: Diseño e implementación de microservicios robustos con NestJS y arquitecturas orientadas a eventos utilizando Kafka para el procesamiento de datos a gran escala. \n • Integración de Sistemas: Desarrollo de soluciones Full Stack (ReactJS) integradas con plataformas e-commerce complejas (VTEX), optimizando la experiencia transaccional del usuario. \n • Cultura DevOps: Estandarización de pipelines de CI/CD con GitHub Actions y Semantic Versioning, reduciendo el \"time-to-market\" y asegurando despliegues confiables en múltiples entornos.",
-      "option": "Soluciones de Alta Disponibilidad para Minería Desarrollo de software industrial enfocado en la visualización y gestión de activos críticos. \n • Visualización de Datos: Creación de dashboards interactivos de alto rendimiento en ReactJS para el monitoreo en tiempo real de operaciones mineras. \n • Infraestructura Cloud: Orquestación de APIs RESTful en Python (Flask), contenerizadas con Docker y desplegadas en AWS Fargate, garantizando alta disponibilidad y tolerancia a fallos.",
-      "arkho": "Durante mi experiencia laboral, he desarrollado habilidades en el desarrollo de aplicaciones web utilizando tecnologías como Angular v7/8 y bases de datos en RDS. También he participado en la creación de ETLs utilizando una variedad de servicios de AWS, incluyendo Lambda, Step Functions, Athena, Glue, SQS, Redshift y S3. Además, he implementado chatbots para páginas web, donde he trabajado en la configuración de estilos y en la creación de lambdas encargadas del mantenedor, utilizando Elastic Search para el almacenamiento de datos. Finalmente, he desarrollado una integración entre sistemas para generar reportes y notificaciones de avance de proyectos a través de una API externa. Estas habilidades me han permitido tener éxito en proyectos complejos y en un entorno de alta presión.",
-      "karibu": "Como Full Stack Developer, desarrollé aplicaciones web utilizando el framework Front-end Nuxt y en el backend utilicé NodeJs con Express para crear APIs RESTful. Implementé almacenamiento seguro de credenciales e información en el Front-end mediante la librería Vuex y utilicé Firebase para la autenticación de usuarios y el deploy del Front-end de la aplicación. También desplegué el backend en Google Cloud Platform (GCP) y utilizamos la base de datos de GCP para almacenar los datos de la aplicación.",
-      "ssilva": "Trabajé como Frontend Developer en un proyecto de sistema web para una inmobiliaria, donde desarrollé componentes con el Framework VueJs y utilicé la librería Vuex para implementar almacenamiento de credenciales de acceso seguras en la capa Front-end. También configuré y utilicé Axios para la comunicación entre las capas Front-end y Back-end.",
-      "vendy": "Participé en el desarrollo de sistemas web mediante la implementación de tecnologías como Node.js y Express para la creación de APIs de Back-end. También, trabajé con bases de datos MySQL para el almacenamiento de datos del sistema y utilicé tecnologías de comercio electrónico como Braintree. Además, contribuí al desarrollo de aplicaciones web utilizando tecnologías como MySQL, Node.js y Express, con el fin de mejorar la experiencia de usuario y la eficiencia del sistema.",
-      "develoop": "Durante esta experiencia laboral, participé en el desarrollo de sistemas web utilizando tecnologías como MySQL, PHP, Laravel Framework, Javascript y CSS. Me enfoqué en un proyecto especial para generar un plano 3D de tuberías dentro de una fábrica, donde colaboré en el diseño y desarrollo de la funcionalidad 2D en la web y su posterior transformación a 3D mediante el uso de ThreeJS. Fue una gran oportunidad para aplicar mis conocimientos en tecnologías de vanguardia y para trabajar en equipo en la resolución de un desafío técnico importante.",
-      "view_more": "Ver Más Experiencias",
-      "view_less": "Ver Menos Experiencias"
+      "tw": "• Modernización de Ecosistemas Digitales & Arquitectura Event-Driven Como consultor técnico, lidero la evolución de plataformas críticas para clientes empresariales. \n • Arquitectura Escalable: Diseño e implementación de microservicios robustos con NestJS y arquitecturas orientadas a eventos utilizando Kafka para el procesamiento de datos a gran escala. \n • Integración de Sistemas: Desarrollo de soluciones Full Stack (ReactJS) integradas con plataformas e-commerce complejas (VTEX), optimizando la experiencia transaccional del usuario. \n • Cultura DevOps: Estandarización de pipelines de CI/CD con GitHub Actions y Semantic Versioning, reduciendo el \"time-to-market\" y asegurando despliegues confiables en múltiples entornos.",
+      "option": "• Soluciones de Alta Disponibilidad para Minería Desarrollo de software industrial enfocado en la visualización y gestión de activos críticos. \n • Visualización de Datos: Creación de dashboards interactivos de alto rendimiento en ReactJS para el monitoreo en tiempo real de operaciones mineras. \n • Infraestructura Cloud: Orquestación de APIs RESTful en Python (Flask), contenerizadas con Docker y desplegadas en AWS Fargate, garantizando alta disponibilidad y tolerancia a fallos.",
+      "arkho": "• Ingeniería de Datos Serverless: Diseño y automatización de flujos ETL utilizando AWS Glue y Athena, transformando datos crutos en información estratégica para la toma de decisiones.\n • Automatización y Eficiencia Operativa: Implementación de soluciones basadas en AWS Lambda y chatbots inteligentes, logrando la eliminación de procesos manuales y una reducción significativa en costos de infraestructura.",
+      "karibu": "• Desarrollo Ágil End-to-End: Construcción integral de aplicaciones web modernas bajo el framework Nuxt.js (Vue) y Node.js, gestionando el despliegue y la infraestructura en Google Cloud Platform (GCP).",
+      "early_career": "• Evolución Tecnológica Full Stack: Trayectoria inicial enfocada en el dominio de arquitecturas web, desde el desarrollo con PHP/Laravel hasta la adopción de stacks modernos basados en Node.js y Vue.js.\n • Proyectos Especializados: Implementación de soluciones diversas que incluyeron visualizaciones 3D con ThreeJS para entornos industriales e integraciones de e-commerce complejas.\n • Crecimiento Profesional: Consolidación de bases sólidas en ingeniería de software, bases de datos SQL y principios de desarrollo ágil que definieron mi transición hacia roles Senior y Cloud-focused.",
+      "view_more": "Ver más Experiencias",
+      "view_less": "Ver menos Experiencias"
     },
     "studies": {
       "title": "Estudios",

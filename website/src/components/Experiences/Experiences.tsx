@@ -40,7 +40,7 @@ export const Experiences = () => {
         title: "experiences.jobs.option.title",
         company: "experiences.jobs.option.company",
         description: "experiences.option",
-        tags: ["React", "Python", "Flask", "AWS", "Docker"]
+        tags: ["React", "Python", "Flask", "Docker", "AWS", "Data Visualization", "REST API"]
     },
     {
         dateFrom: "2019",
@@ -48,7 +48,7 @@ export const Experiences = () => {
         company: "experiences.jobs.arkho.company",
         title: "experiences.jobs.arkho.title",
         description: "experiences.arkho",
-        tags: ["AWS", "Angular", "Lambda", "ETL"]
+        tags: ["AWS", "AWS Lambda", "AWS Glue", "AWS Athena", "Angular", "Serverless", "ETL", "Elasticsearch"]
     },
     {
         dateFrom: "2019",
@@ -56,32 +56,16 @@ export const Experiences = () => {
         company: "experiences.jobs.karibu.company",
         title: "experiences.jobs.karibu.title",
         description: "experiences.karibu",
-        tags: ["Vue", "Node.js", "Firebase", "GCP"]
+        tags: ["Nuxt.js", "Vue.js", "Node.js", "GCP", "Firebase", "Express", "NoSQL"]
     },
     {
-        dateFrom: "2019",
+        dateFrom: "2014",
         dateTo: "2019",
-        company: "experiences.jobs.ssilva.company",
-        title: "experiences.jobs.ssilva.title",
-        description: "experiences.ssilva",
-        tags: ["Vue.js", "Vuex"]
+        company: "Early Career & Foundations",
+        title: "experiences.jobs.early_career.title",
+        description: "experiences.early_career",
+        tags: ["Vue.js", "Node.js", "PHP", "Laravel", "MySQL", "ThreeJS", "JavaScript"]
     },
-     {
-        dateFrom: "2018",
-        dateTo: "2019",
-        company: "experiences.jobs.vendy.company",
-        title: "experiences.jobs.vendy.title",
-        description: "experiences.vendy",
-        tags: ["Node.js", "MySQL", "Express"]
-    },
-    {
-        dateFrom: "2017",
-        dateTo: "2018",
-        company: "experiences.jobs.develoop.company",
-        title: "experiences.jobs.develoop.title",
-        description: "experiences.develoop",
-        tags: ["PHP", "Laravel", "MySQL", "ThreeJS"]
-    }
   ];
 
   const visibleExperiences = showAll ? experiences : experiences.slice(0, 3);
@@ -105,7 +89,6 @@ export const Experiences = () => {
                 { value: 'experiences.stats.focus.value' }
             ].map((stat, i) => (
                 <div key={i} className="bg-gray-50 dark:bg-card/50 border border-black/5 dark:border-white/5 p-4 rounded-lg flex flex-col justify-center h-24 hover:bg-gray-100 dark:hover:bg-card/80 transition-colors">
-                    {/* <span className="text-xs text-gray-500 font-bold tracking-wider mb-1 uppercase">{t(stat.label)}</span> */}
                     <span className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{t(stat.value)}</span>
                 </div>
             ))}
@@ -182,7 +165,7 @@ export const Experiences = () => {
             <button 
                 ref={buttonRef}
                 onClick={() => setShowAll(!showAll)}
-                className="flex items-center gap-2 px-8 py-3 bg-gray-100 dark:bg-white/5 text-gray-900 dark:text-white font-medium rounded-lg border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 hover:text-primary dark:hover:text-primary hover:border-primary/30 transition-all group"
+                className="flex items-center gap-2 px-8 py-3 bg-gray-100 dark:bg-white/5 text-gray-900 dark:text-white font-medium rounded-lg border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 hover:text-primary dark:hover:text-primary hover:border-primary/30 transition-all group hover:cursor-pointer"
             >
                 <span>{showAll ? t('experiences.view_less') : t('experiences.view_more')}</span>
                 <FontAwesomeIcon 
