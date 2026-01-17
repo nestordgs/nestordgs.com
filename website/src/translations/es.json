@@ -123,6 +123,13 @@
       "title": "Intereses",
       "description": "Mantenerme activo es importante para mí, y disfruto de actividades como el Crossfit y el senderismo para ayudarme a mantenerme enérgico. La fotografía es una de mis pasiones y me encanta capturar momentos especiales y paisajes hermosos. Tengo un gusto musical diverso y disfruto asistir a conciertos para disfrutar de la música."
     },
+    "feature_project": {
+      "title": "Proyecto Destacado",
+      "category": "SERVERLESS & SPORTS TECH",
+      "project_title": "LiftWiz — Ecosistema para Halterofilia",
+      "description": "Plataforma integral diseñada para optimizar el rendimiento en halterofilia olímpica. Implementada bajo una arquitectura 100% Serverless en AWS, garantizando escalabilidad inmediata y eficiencia de costes. Destaca por el uso de AWS CDK para infraestructura como código y una interfaz reactiva de alto rendimiento enfocada en la experiencia del atleta.",
+      "cta_view": "Ver Demo"
+    },
     "contact": {
       "title": "Contacto"
     }

@@ -135,6 +135,13 @@
       "title": "Interests",
       "description": "Staying active is important to me, and I enjoy activities like Crossfit and hiking to help me stay energized. Photography is one of my passions and I love capturing special moments and beautiful landscapes. I have a diverse taste in music and enjoy attending concerts to enjoy music."
     },
+    "feature_project": {
+      "title": "Featured Project",
+      "category": "SERVERLESS & SPORTS TECH",
+      "project_title": "LiftWiz — Weightlifting Ecosystem",
+      "description": "A comprehensive platform engineered to optimize Olympic weightlifting performance. Built with a 100% Serverless architecture on AWS, ensuring instant scalability and cost-efficiency. This project showcases advanced Infrastructure as Code (CDK) practices and a high-performance reactive UI focused on the athlete's user experience.",
+      "cta_view": "Live Demo"
+    },
     "contact": {
       "title": "Contact"
     }

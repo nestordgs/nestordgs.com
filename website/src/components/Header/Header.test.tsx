@@ -19,8 +19,9 @@ describe("<Header Component />", () => {
 
   it("Should render main title", () => {
     // We look for parts of the title since it's split into multiple spans
-    expect(screen.getByText(/Engineering/i)).toBeInTheDocument();
-    expect(screen.getByText(/Scalable/i)).toBeInTheDocument();
+    expect(screen.getByText("header.hero.prefix")).toBeInTheDocument();
+    expect(screen.getByText("header.hero.highlight")).toBeInTheDocument();
+    expect(screen.getByText("header.hero.suffix")).toBeInTheDocument();
   });
 
   it("Should render subtitle key", () => {
