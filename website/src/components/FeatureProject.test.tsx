@@ -58,4 +58,14 @@ describe("<FeatureProject Component />", () => {
     // Check if lightbox disappeared
     expect(screen.queryByAltText("Expanded view")).not.toBeInTheDocument();
   });
+
+  it("Should open lightbox when clicking the second image", () => {
+    render(<FeatureProject />);
+    
+    const image2 = screen.getByAltText("LiftWiz Mobile View 2");
+    fireEvent.click(image2);
+    
+    expect(screen.getByAltText("Expanded view")).toBeInTheDocument();
+    expect(screen.getByAltText("Expanded view")).toHaveAttribute("src", "/liftwiz-mobile-2.png");
+  });
 });

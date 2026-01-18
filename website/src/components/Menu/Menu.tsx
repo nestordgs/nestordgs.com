@@ -3,8 +3,6 @@ import { useTranslation } from "react-i18next";
 import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTerminal, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-// import logo from "../../logo.svg";
-
 import sections from "./sections.json";
 import { TranslationConext } from "../../translations";
 import { SwitchLanguage } from "../SwitchLanguage/SwitchLanguage";
@@ -80,6 +78,7 @@ export const Menu = () => {
         <button 
             className="md:hidden text-gray-900 dark:text-white"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle mobile menu"
         >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
