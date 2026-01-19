@@ -7,7 +7,8 @@ import { Menu } from "./Menu";
 vi.mock("../../logo.svg", () => "logo.svg");
 
 describe("<Menu Component />", () => {
-  const renderMenu = (props = { language: "en", changeLanguage: vi.fn() as any }) => {
+  const defaultProps = { language: "en", changeLanguage: vi.fn() as any };
+  const renderMenu = (props = defaultProps) => {
     return render(
       <TranslationConext.Provider value={props}>
         <Menu />
@@ -60,6 +61,16 @@ describe("<Menu Component />", () => {
     expect(changeLanguageMock).toHaveBeenCalledWith("es");
   });
 
+  it("Should toggle language back to English when language is ES", () => {
+    const changeLanguageMock = vi.fn();
+    renderMenu({ language: "es", changeLanguage: changeLanguageMock });
+
+    const languageSwitch = screen.getByTestId("language-switch");
+    fireEvent.click(languageSwitch);
+    
+    expect(changeLanguageMock).toHaveBeenCalledWith("en");
+  });
+
   it("Should close mobile menu when clicking a link", () => {
     renderMenu();
 
@@ -80,7 +91,7 @@ describe("<Menu Component />", () => {
     
     // Items are duplicated. Last instances are mobile.
     const links = screen.getAllByText("menu.experience");
-    const mobileLink = links[links.length - 1]; // Last one
+    const mobileLink = links.at(-1)!; // Last one
     
     fireEvent.click(mobileLink);
 
