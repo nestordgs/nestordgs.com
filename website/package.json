@@ -64,6 +64,6 @@
     "react-scripts": "^5.0.1",
     "webpack-dev-server": ">=5.2.3",
     "form-data": ">=4.0.5",
-    "brace-expansion": ">=4.0.1"
+    "brace-expansion": ">=5.0.3"
   }
 }
