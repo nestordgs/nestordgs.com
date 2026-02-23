@@ -4,15 +4,15 @@
     "value": "#experience"
   },
   {
-    "name": "menu.aptitud",
-    "value": "#aptitudes"
+    "name": "menu.projects",
+    "value": "#projects"
   },
   {
-    "name": "menu.studies",
-    "value": "#study"
+    "name": "menu.blog",
+    "value": "#blog"
   },
   {
-    "name": "menu.concerns",
-    "value": "#i-like-it"
+    "name": "menu.connect",
+    "value": "#connect"
   }
 ]
