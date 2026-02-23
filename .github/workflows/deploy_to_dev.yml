@@ -21,7 +21,7 @@ jobs:
       - name: Node setup
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Upgrade AWS CDK
         run: npm uninstall -g aws-cdk && npm i -g aws-cdk
@@ -58,7 +58,7 @@ jobs:
       - name: Node setup
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Upgrade AWS CDK
         run: npm i -g aws-cdk
