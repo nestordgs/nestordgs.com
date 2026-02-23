@@ -102,7 +102,7 @@ jobs:
       - name: Upload files to bucket
         working-directory: website
         run: |
-          aws s3 sync ./build s3://${{ steps.resources-values.outputs.bucket }}
+          aws s3 sync ./dist s3://${{ steps.resources-values.outputs.bucket }}
 
       - name: Invalidate Cloudfront
         working-directory: website
