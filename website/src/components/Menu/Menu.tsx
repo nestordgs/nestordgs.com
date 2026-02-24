@@ -86,39 +86,37 @@ export const Menu = () => {
         </button>
 
          {/* Mobile Menu Dropdown */}
-         { isOpen && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-[#111] border border-black/5 dark:border-white/10 rounded-xl p-4 flex flex-col gap-4 shadow-2xl md:hidden">
-                <ul className="flex flex-col gap-4 list-none m-0 p-0">
-                    {sections.filter(s => s.name !== 'menu.blog').map((section) => (
-                        <li key={section.name}>
-                            <a 
-                                href={section.value}
-                                className="block text-gray-600 dark:text-gray-200 font-semibold hover:text-primary hover:font-bold transition-all duration-300"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {t(section.name)}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-                <div className="pt-4 border-t border-black/5 dark:border-white/10 flex items-center justify-between">
-                     <SwitchLanguage
-                        label={`${language.toUpperCase()}`}
-                        isChecked={language === "en"}
-                        onClick={handleLanguage}
+         <div className={`absolute top-full left-0 right-0 mt-2 mx-4 bg-white dark:bg-[#111] border border-black/5 dark:border-white/10 rounded-xl p-4 flex flex-col gap-4 shadow-2xl md:hidden transition-all duration-300 ease-in-out origin-top ${isOpen ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'}`}>
+            <ul className="flex flex-col gap-4 list-none m-0 p-0">
+                {sections.filter(s => s.name !== 'menu.blog').map((section) => (
+                    <li key={section.name}>
+                        <a 
+                            href={section.value}
+                            className="block text-gray-600 dark:text-gray-200 font-semibold hover:text-primary hover:font-bold transition-all duration-300 px-2 py-1"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {t(section.name)}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+            <div className="pt-4 border-t border-black/5 dark:border-white/10 flex items-center justify-between">
+                 <SwitchLanguage
+                    label={`${language.toUpperCase()}`}
+                    isChecked={language === "en"}
+                    onClick={handleLanguage}
+                />
+                <button
+                    onClick={toggleTheme}
+                    className="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+                >
+                    <FontAwesomeIcon 
+                        icon={theme === 'dark' ? faSun : faMoon} 
+                        className={theme === 'dark' ? 'text-orange-400' : 'text-primary'} 
                     />
-                    <button
-                        onClick={toggleTheme}
-                        className="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
-                    >
-                        <FontAwesomeIcon 
-                            icon={theme === 'dark' ? faSun : faMoon} 
-                            className={theme === 'dark' ? 'text-orange-400' : 'text-primary'} 
-                        />
-                    </button>
-                </div>
+                </button>
             </div>
-         )}
+        </div>
       </nav>
       </div>
     </header>
