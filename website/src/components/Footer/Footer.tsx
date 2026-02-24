@@ -2,7 +2,7 @@ import React from "react";
 import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub, faDev } from "@fortawesome/free-brands-svg-icons";
 
 const ConnectCard = ({ icon, label, href }: { icon: any, label: string, href: string }) => (
@@ -45,11 +45,7 @@ export const Footer = () => {
                         label="Dev.to"
                         href="https://dev.to/nestordgs"
                     />
-                    <ConnectCard 
-                        icon={faEnvelope}
-                        label="Email Me"
-                        href="mailto:contact@nestordgs.com" // Assuming email
-                    />
+
             </div>
 
             <div className="pt-5 border-t border-black/5 dark:border-white/5 w-full">
