@@ -33,12 +33,13 @@ describe("<Menu Component />", () => {
     renderMenu();
     // Initially only desktop menu items are present (1 instance)
     const initialItems = screen.getAllByText("menu.experience");
-    expect(initialItems).toHaveLength(1);
+    // With my change, both desktop and mobile are in DOM, but mobile is "hidden" via opacity
+    expect(initialItems).toHaveLength(2);
 
     const mobileToggleButton = screen.getByLabelText("Toggle mobile menu");
     fireEvent.click(mobileToggleButton);
 
-    // Now mobile menu items should also be present (2 instances)
+    // Menu should stay in DOM (2 instances) because it uses CSS transition now
     const newItems = screen.getAllByText("menu.experience");
     expect(newItems).toHaveLength(2);
   });
@@ -55,8 +56,9 @@ describe("<Menu Component />", () => {
     const changeLanguageMock = vi.fn();
     renderMenu({ language: "en", changeLanguage: changeLanguageMock });
 
-    const languageSwitch = screen.getByTestId("language-switch");
-    fireEvent.click(languageSwitch);
+    // Both desktop and mobile switches are in DOM
+    const languageSwitches = screen.getAllByTestId("language-switch");
+    fireEvent.click(languageSwitches[0]);
     
     expect(changeLanguageMock).toHaveBeenCalledWith("es");
   });
@@ -65,8 +67,8 @@ describe("<Menu Component />", () => {
     const changeLanguageMock = vi.fn();
     renderMenu({ language: "es", changeLanguage: changeLanguageMock });
 
-    const languageSwitch = screen.getByTestId("language-switch");
-    fireEvent.click(languageSwitch);
+    const languageSwitches = screen.getAllByTestId("language-switch");
+    fireEvent.click(languageSwitches[0]);
     
     expect(changeLanguageMock).toHaveBeenCalledWith("en");
   });
@@ -78,25 +80,14 @@ describe("<Menu Component />", () => {
     const mobileToggleButton = screen.getByLabelText("Toggle mobile menu");
     fireEvent.click(mobileToggleButton);
 
-    // Find a link (e.g. Experience) and click it
-    // Note: getAllByText returns desktop and mobile links. 
-    // The mobile one is the second one usually, or we can look for visibility if strictly handled, but here relying on order or container.
-    // The desktop one is hidden by CSS but in DOM.
-    // However, the click handler for closing is ONLY on the mobile items.
-    // Desktop items don't have the onClick={() => setIsOpen(false)}.
-    // So if I click the desktop one, nothing related to setIsOpen happens (and it's not open/relevant).
-    // If I click the mobile one, it updates state.
-    // Let's target the link inside the mobile menu container.
-    // We can use within() or just pick the last one.
-    
-    // Items are duplicated. Last instances are mobile.
     const links = screen.getAllByText("menu.experience");
     const mobileLink = links.at(-1)!; // Last one
     
     fireEvent.click(mobileLink);
 
-    // Menu content should disappear (removed from DOM because isOpen becomes false)
-    expect(screen.queryByText("menu.home")).not.toBeInTheDocument();
+    // With smooth transition, it's still in DOM but should have opacity-0 class now
+    const mobileMenuContainer = screen.getAllByRole('list')[1].parentElement;
+    expect(mobileMenuContainer).toHaveClass('opacity-0');
   });
 });
 

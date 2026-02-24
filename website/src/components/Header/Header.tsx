@@ -1,15 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloud, faCodeBranch, faLayerGroup, faServer, faDatabase } from "@fortawesome/free-solid-svg-icons";
-import { faJs, faHtml5, faCss3Alt } from "@fortawesome/free-brands-svg-icons";
+import { faCloud, faCodeBranch, faLayerGroup, faServer } from "@fortawesome/free-solid-svg-icons";
 import { HeroCard } from "./HeroCard";
 
 export const Header = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="min-h-[85vh] flex items-center py-10 md:pt-20 md:pb-12 relative bg-gray-50 dark:bg-deep-dark border-b border-black/5 dark:border-white/5 w-full transition-colors duration-300">
+    <section className="min-h-[85vh] flex items-center pt-28 pb-10 md:pt-20 md:pb-12 relative bg-gray-50 dark:bg-deep-dark border-b border-black/5 dark:border-white/5 w-full transition-colors duration-300">
         <div className="container max-w-6xl mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-12 items-center">
             
             {/* Left Content */}
