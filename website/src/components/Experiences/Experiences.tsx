@@ -71,7 +71,7 @@ export const Experiences = () => {
   const visibleExperiences = showAll ? experiences : experiences.slice(0, 3);
 
   return (
-    <section className="py-10 md:py-20 bg-white dark:bg-dark w-full transition-colors duration-300" id="experience">
+    <section className="py-16 md:py-24 bg-white dark:bg-dark w-full transition-colors duration-300 scroll-mt-20" id="experience">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col gap-2 mb-8">
             <div className="flex items-center gap-4">

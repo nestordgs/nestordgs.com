@@ -8,7 +8,7 @@ export const FeatureProject = () => {
     const [expandedImage, setExpandedImage] = React.useState<string | null>(null);
 
     return (
-        <section className="py-10 md:py-20 bg-gray-50 dark:bg-deep-dark w-full transition-colors duration-300" id="projects">
+        <section className="py-16 md:py-24 bg-gray-50 dark:bg-deep-dark w-full transition-colors duration-300 scroll-mt-20" id="projects">
             <div className="max-w-6xl mx-auto md:px-0">
                 <div className="flex items-center gap-4 mb-12 px-4">
                     <div className="h-1 w-12 bg-primary rounded-full" />
