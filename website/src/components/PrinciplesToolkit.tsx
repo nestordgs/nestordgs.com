@@ -7,7 +7,7 @@ export const PrinciplesToolkit = () => {
     const { t } = useTranslation();
 
     return (
-        <section className="py-20 bg-white dark:bg-deep-dark w-full transition-colors duration-300" id="profile">
+        <section className="py-16 md:py-24 bg-white dark:bg-deep-dark w-full transition-colors duration-300 scroll-mt-20" id="profile">
             <div className="max-w-6xl mx-auto md:px-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 px-4">
                     

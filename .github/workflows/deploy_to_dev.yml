@@ -19,9 +19,11 @@ jobs:
           set-safe-directory: false
 
       - name: Node setup
-        uses: actions/setup-node@v3.6.0
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: infra/package-lock.json
 
       - name: Upgrade AWS CDK
         run: npm uninstall -g aws-cdk && npm i -g aws-cdk
@@ -35,7 +37,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: infra
-        run: npm install
+        run: npm ci
 
       - name: Deploy to Environment
         working-directory: infra
@@ -56,9 +58,11 @@ jobs:
           set-safe-directory: false
 
       - name: Node setup
-        uses: actions/setup-node@v3.6.0
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: website/package-lock.json
 
       - name: Upgrade AWS CDK
         run: npm i -g aws-cdk
@@ -72,7 +76,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: website
-        run: npm i
+        run: npm ci
 
       - name: Build Website
         working-directory: website
