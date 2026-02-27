@@ -9,6 +9,17 @@ import App from "./App";
 import english from "./translations/en.json";
 import spanish from "./translations/es.json";
 import reportWebVitals from "./reportWebVitals";
+import posthog from "posthog-js";
+
+// Only initialize PostHog when the key is provided (in production)
+if (import.meta.env.VITE_PUBLIC_POSTHOG_KEY) {
+  posthog.init(import.meta.env.VITE_PUBLIC_POSTHOG_KEY, {
+    api_host:
+      import.meta.env.VITE_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com",
+    autocapture: true, // Captures clicks, inputs, and other interactions automatically
+    capture_pageview: true, // Captures the pageview automatically
+  });
+}
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -23,7 +34,7 @@ i18n.use(initReactI18next).init({
 });
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 
 window.onblur = function () {
@@ -40,7 +51,7 @@ window.onfocus = function () {
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function
