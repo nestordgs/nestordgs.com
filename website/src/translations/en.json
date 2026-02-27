@@ -10,6 +10,7 @@
       "concerns": "Interests",
       "contact": "Contact",
       "connect": "Connect",
+      "connect_description": "Feel free to reach out for collaborations, questions, or just to say hi.",
       "about": "About"
     },
     "header": {
@@ -145,6 +146,10 @@
     },
     "contact": {
       "title": "Contact"
+    },
+    "footer": {
+      "developed_with": "Developed with",
+      "by": "by"
     }
   }
 }

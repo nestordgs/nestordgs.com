@@ -10,6 +10,7 @@
       "concerns": "Intereses",
       "contact": "Contacto",
       "connect": "Conectar",
+      "connect_description": "No dudes en contactarme para colaboraciones, preguntas o simplemente para decir hola.",
       "about": "Sobre mí"
     },
     "aptitudes": {
@@ -133,6 +134,10 @@
     },
     "contact": {
       "title": "Contacto"
+    },
+    "footer": {
+      "developed_with": "Desarrollado con",
+      "by": "por"
     }
   }
 }

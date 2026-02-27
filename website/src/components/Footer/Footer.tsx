@@ -25,7 +25,7 @@ export const Footer = () => {
             <div className="space-y-4">
                     <h2 className="text-4xl font-bold text-gray-900 dark:text-white">{t('menu.connect')}</h2>
                     <p className="text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
-                        Feel free to reach out for collaborations, questions, or just to say hi.
+                        {t('menu.connect_description')}
                     </p>
             </div>
 
@@ -51,7 +51,7 @@ export const Footer = () => {
             <div className="pt-5 border-t border-black/5 dark:border-white/5 w-full">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <p className="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-2">
-                            Developed with <FontAwesomeIcon icon={faHeart} className="text-red-500 animate-pulse" /> by nestordgs {dayjs().year()}
+                            {t('footer.developed_with')} <FontAwesomeIcon icon={faHeart} className="text-red-500 animate-pulse" /> {t('footer.by')} nestordgs {dayjs().year()}
                         </p>
                         <div className="flex items-center gap-6">
                             <a href="#experience" className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm transition-colors">
