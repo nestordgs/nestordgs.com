@@ -1,46 +1,148 @@
-# Getting Started with Create React App
+# Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend application for the `nestordgs.com` personal site. This package contains the public-facing portfolio UI, including the hero section, experience timeline, featured LiftWiz project, profile/toolkit section, bilingual copy, theme switching, and contact links.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+These instructions explain how to install dependencies, run the site locally, execute the tests, and build the static files that are later uploaded by the deployment workflow.
 
-### `yarn start`
+### Main Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Single-page portfolio built with React and Vite
+- English and Spanish copy managed through `i18next`
+- Dark and light theme toggle
+- Responsive navigation for desktop and mobile
+- Experience timeline and consulting profile sections
+- Featured project showcase for LiftWiz
+- Optional PostHog analytics when public Vite variables are present
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Project Structure
 
-### `yarn test`
+- `src/components/` for the site sections and shared UI pieces
+- `src/translations/` for English and Spanish content plus translation context
+- `src/hooks/` for UI behavior like theme management
+- `public/` for static images and icons served directly by Vite
+- `design/` for source design assets used to create the site visuals
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `yarn build`
+- Node.js 20.x
+- npm
+- Optional PostHog environment variables if you want analytics enabled during a build
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm ci
+```
 
-### `yarn eject`
+Start the development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Optional Environment Variables
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+These values are only needed when you want analytics enabled:
 
-## Learn More
+| Variable | Required | Description |
+| --- | --- | --- |
+| `VITE_PUBLIC_POSTHOG_KEY` | Optional | Public PostHog project key |
+| `VITE_PUBLIC_POSTHOG_HOST` | Optional | PostHog host override, defaults to `https://us.i.posthog.com` |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Example:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+VITE_PUBLIC_POSTHOG_KEY=phc_xxx VITE_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com npm run build
+```
+
+## Running the Tests
+
+The frontend test suite uses Vitest, React Testing Library, and Happy DOM.
+
+Run the test runner in watch mode:
+
+```bash
+npm test
+```
+
+Run the CI-oriented test command with coverage:
+
+```bash
+npm run test:ci
+```
+
+### Break Down of the Tests
+
+The current tests focus on component rendering and UI behavior, including:
+
+- App rendering
+- Menu and header rendering
+- Experience section behavior
+- Language switch behavior
+- Theme hook behavior
+- Translation context and reducer behavior
+
+### Coding Style Checks
+
+There is currently no dedicated lint script in this package. The main validation mechanisms are the test suite and the production build.
+
+## Deployment
+
+Create a production build with:
+
+```bash
+npm run build
+```
+
+Preview the generated build locally:
+
+```bash
+npm run preview
+```
+
+The production build is written to `dist/`. The repository deployment workflows then:
+
+1. Deploy or update the infrastructure stack in `infra/`.
+2. Build this package.
+3. Upload `dist/` to the S3 bucket created by the CDK stack.
+4. Invalidate the CloudFront cache for `/index.html`.
+
+### Notes About Runtime Behavior
+
+- The app initializes PostHog only when `VITE_PUBLIC_POSTHOG_KEY` is defined.
+- The theme toggle persists the selected theme in `localStorage`.
+- The site content is bilingual, with English loaded by default and Spanish available through the language switch.
+
+## Built With
+
+- [React 18](https://react.dev/)
+- [Vite](https://vite.dev/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [i18next](https://www.i18next.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [PostHog](https://posthog.com/) for optional analytics
+- [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+## Contributing
+
+This package is part of a personal website project and is not accepting external contributions.
+
+## Versioning
+
+The website is maintained directly through the repository history.
+
+## Authors
+
+- Nestor Gutiérrez - [nestordgs](https://github.com/nestordgs)
+
+## Acknowledgments
+
+- README structure adapted from [PurpleBooth's README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+- Vite, Tailwind CSS, and React for the frontend foundation
