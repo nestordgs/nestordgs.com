@@ -42,7 +42,7 @@ jobs:
           PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
         run: |
-          cdk deploy --all --require-approval never
+          npx --no-install cdk deploy --all --require-approval never
 
   CompileAndDeploy:
     needs: [DeployInfra]
