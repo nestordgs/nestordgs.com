@@ -43,7 +43,7 @@ jobs:
           HOSTED_ZONE_NAME: ${{ secrets.HOSTED_ZONE_NAME }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
-          cdk deploy --all --require-approval never
+          npx --no-install cdk deploy --all --require-approval never
 
   CompileAndDeploy:
     needs: [DeployInfra]
