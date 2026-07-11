@@ -1,8 +1,8 @@
 import * as cdk from 'aws-cdk-lib';
-import { RemovalPolicy } from 'aws-cdk-lib';
+import { Duration, RemovalPolicy } from 'aws-cdk-lib';
 import { DnsValidatedCertificate } from 'aws-cdk-lib/aws-certificatemanager';
-import { AllowedMethods, CachePolicy, Distribution, OriginAccessIdentity, OriginRequestPolicy, ResponseHeadersPolicy, ViewerProtocolPolicy } from 'aws-cdk-lib/aws-cloudfront';
-import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
+import { AllowedMethods, CachePolicy, Distribution, HeadersFrameOption, HeadersReferrerPolicy, ResponseHeadersPolicy, ViewerProtocolPolicy } from 'aws-cdk-lib/aws-cloudfront';
+import { S3BucketOrigin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { ARecord, HostedZone, IHostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { BlockPublicAccess, Bucket, BucketEncryption } from 'aws-cdk-lib/aws-s3';
@@ -21,15 +21,26 @@ export class InfraStack extends cdk.Stack {
       encryption: BucketEncryption.S3_MANAGED,
     });
 
-    const originAccessIdentity: OriginAccessIdentity = new OriginAccessIdentity(
-      this,
-      `${PROJECT_NAME}-${ENVIRONMENT}-OAI`,
-      {
-        comment: 'My OAI for the S3 Website',
-      }
-    );
+    const websiteOrigin = S3BucketOrigin.withOriginAccessControl(websiteBucket);
 
-    websiteBucket.grantRead(originAccessIdentity);
+    const securityHeadersPolicy = new ResponseHeadersPolicy(this, 'SecurityHeadersPolicy', {
+      securityHeadersBehavior: {
+        contentSecurityPolicy: {
+          contentSecurityPolicy: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.posthog.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+          override: true,
+        },
+        contentTypeOptions: { override: true },
+        frameOptions: { frameOption: HeadersFrameOption.DENY, override: true },
+        referrerPolicy: { referrerPolicy: HeadersReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN, override: true },
+        strictTransportSecurity: {
+          accessControlMaxAge: Duration.days(365),
+          includeSubdomains: true,
+          preload: true,
+          override: true,
+        },
+        xssProtection: { protection: false, override: true },
+      },
+    });
 
     let cloudfrontDistri: Distribution;
     if (ENVIRONMENT === 'prod') {
@@ -53,14 +64,11 @@ export class InfraStack extends cdk.Stack {
           domainNames: [HOSTED_ZONE_NAME],
           defaultRootObject: 'index.html',
           defaultBehavior: {
-            origin: new S3Origin(websiteBucket, {
-              originAccessIdentity: originAccessIdentity
-            }),
-            originRequestPolicy: OriginRequestPolicy.CORS_S3_ORIGIN,
+            origin: websiteOrigin,
             viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-            responseHeadersPolicy: ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
+            responseHeadersPolicy: securityHeadersPolicy,
             cachePolicy: CachePolicy.CACHING_OPTIMIZED,
-            allowedMethods: AllowedMethods.ALLOW_ALL,
+            allowedMethods: AllowedMethods.ALLOW_GET_HEAD,
           }
         }
       );
@@ -79,14 +87,11 @@ export class InfraStack extends cdk.Stack {
         {
           defaultRootObject: 'index.html',
           defaultBehavior: {
-            origin: new S3Origin(websiteBucket, {
-              originAccessIdentity: originAccessIdentity
-            }),
-            originRequestPolicy: OriginRequestPolicy.CORS_S3_ORIGIN,
+            origin: websiteOrigin,
             viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-            responseHeadersPolicy: ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
+            responseHeadersPolicy: securityHeadersPolicy,
             cachePolicy: CachePolicy.CACHING_OPTIMIZED,
-            allowedMethods: AllowedMethods.ALLOW_ALL,
+            allowedMethods: AllowedMethods.ALLOW_GET_HEAD,
           }
         }
       );

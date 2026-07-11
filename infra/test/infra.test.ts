@@ -17,10 +17,16 @@ describe('Website is Created', () => {
   })
 
   describe('S3 Bucket', () => {
-    it('Should contain at least 1 s3 bucket', () => {
+    it('Should contain one private, versioned S3 bucket', () => {
       template.resourceCountIs('AWS::S3::Bucket', 1);
 
       template.hasResourceProperties('AWS::S3::Bucket', Match.objectLike({
+        PublicAccessBlockConfiguration: {
+          BlockPublicAcls: true,
+          BlockPublicPolicy: true,
+          IgnorePublicAcls: true,
+          RestrictPublicBuckets: true,
+        },
         VersioningConfiguration: {
           Status: 'Enabled'
         },
@@ -37,8 +43,34 @@ describe('Website is Created', () => {
   })
 
   describe('Cloudfront Distribution', () => {
-    it('Should contain at least 1 Cloudfront Distribution', () => {
+    it('Should expose the site only through HTTPS GET and HEAD requests', () => {
       template.resourceCountIs('AWS::CloudFront::Distribution', 1);
+      template.hasResourceProperties('AWS::CloudFront::Distribution', Match.objectLike({
+        DistributionConfig: Match.objectLike({
+          DefaultCacheBehavior: Match.objectLike({
+            AllowedMethods: ['GET', 'HEAD'],
+            ViewerProtocolPolicy: 'redirect-to-https',
+          }),
+        }),
+      }));
+    });
+
+    it('Should attach restrictive browser security headers', () => {
+      template.hasResourceProperties('AWS::CloudFront::ResponseHeadersPolicy', Match.objectLike({
+        ResponseHeadersPolicyConfig: Match.objectLike({
+          SecurityHeadersConfig: Match.objectLike({
+            ContentSecurityPolicy: Match.objectLike({
+              ContentSecurityPolicy: Match.stringLikeRegexp("default-src 'self'"),
+            }),
+            FrameOptions: { FrameOption: 'DENY', Override: true },
+            StrictTransportSecurity: Match.objectLike({
+              AccessControlMaxAgeSec: 31536000,
+              IncludeSubdomains: true,
+              Preload: true,
+            }),
+          }),
+        }),
+      }));
     });
   })
 })

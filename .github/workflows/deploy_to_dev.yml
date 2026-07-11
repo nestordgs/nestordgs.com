@@ -14,22 +14,19 @@ jobs:
     environment: development
     steps:
       - name: Repo Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
           set-safe-directory: false
 
       - name: Node setup
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 20
           cache: "npm"
           cache-dependency-path: infra/package-lock.json
 
-      - name: Upgrade AWS CDK
-        run: npm uninstall -g aws-cdk && npm i -g aws-cdk
-
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@cabfdba3510de1431bac9dba27511d97497fc100
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -53,22 +50,19 @@ jobs:
     environment: development
     steps:
       - name: Repo Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
           set-safe-directory: false
 
       - name: Node setup
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 20
           cache: "npm"
           cache-dependency-path: website/package-lock.json
 
-      - name: Upgrade AWS CDK
-        run: npm i -g aws-cdk
-
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@cabfdba3510de1431bac9dba27511d97497fc100
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
