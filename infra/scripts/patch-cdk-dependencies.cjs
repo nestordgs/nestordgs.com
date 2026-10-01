@@ -7,8 +7,8 @@ const root = path.resolve(__dirname, '..')
 // aws-cdk-lib bundles these packages, so npm overrides cannot replace its copies.
 // Keep the bundled modules aligned with the patched root versions after install.
 const dependencies = [
-  { name: 'brace-expansion', minimumVersion: '5.0.9' },
-  { name: 'fast-uri', minimumVersion: '3.1.6' }
+  { name: 'brace-expansion', minimumVersion: '5.0.12' },
+  { name: 'fast-uri', minimumVersion: '3.1.8' }
 ]
 
 function readPackageVersion (directory) {
