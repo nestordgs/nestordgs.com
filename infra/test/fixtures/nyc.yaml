@@ -1,0 +1,8 @@
+all: true
+include:
+  - lib/**/*.ts
+exclude:
+  - test/**
+reporter:
+  - text
+  - lcov
