@@ -56,7 +56,7 @@ PROJECT_NAME=nestordgs ENVIRONMENT=prod HOSTED_ZONE_ID=Z123456789 HOSTED_ZONE_NA
 
 ## Running the Tests
 
-Infrastructure tests are written with Jest and AWS CDK assertions.
+Infrastructure tests are written with Vitest and AWS CDK assertions.
 
 ```bash
 npm test
@@ -72,7 +72,7 @@ The current test suite verifies that the synthesized template includes:
 
 ### Coding Style Checks
 
-There is currently no dedicated lint script in this package. Validation here comes from TypeScript compilation, CDK synthesis, and the Jest assertion suite.
+There is currently no dedicated lint script in this package. Validation here comes from TypeScript compilation, CDK synthesis, and the Vitest assertion suite.
 
 ## Deployment
 
@@ -107,7 +107,7 @@ PROJECT_NAME=nestordgs ENVIRONMENT=prod HOSTED_ZONE_ID=Z123456789 HOSTED_ZONE_NA
 
 - `npm run build` compiles TypeScript
 - `npm run watch` recompiles on file changes
-- `npm run test` runs the Jest suite
+- `npm run test` runs the Vitest suite once; `npm run test:watch` watches for changes
 - `npm run cdk -- synth` generates the CloudFormation template
 - `npm run cdk -- diff` compares the local stack with the deployed stack
 - `npm run cdk -- deploy --all --require-approval never` deploys the stack
@@ -119,7 +119,7 @@ PROJECT_NAME=nestordgs ENVIRONMENT=prod HOSTED_ZONE_ID=Z123456789 HOSTED_ZONE_NA
 - [Amazon CloudFront](https://aws.amazon.com/cloudfront/)
 - [Amazon Route 53](https://aws.amazon.com/route53/)
 - [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
-- [Jest](https://jestjs.io/) with CDK assertions
+- [Vitest](https://vitest.dev/) with CDK assertions
 
 ## Contributing
 
