@@ -8,6 +8,7 @@ const root = path.resolve(__dirname, '..')
 // Keep the bundled modules aligned with the patched root versions after install.
 const dependencies = [
   { name: 'brace-expansion', minimumVersion: '5.0.12' },
+  { name: 'minimatch', minimumVersion: '11.0.4' },
   { name: 'fast-uri', minimumVersion: '3.1.9' }
 ]
 

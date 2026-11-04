@@ -1,6 +1,7 @@
 import { App, Stack } from "aws-cdk-lib"
 import { Match, Template } from "aws-cdk-lib/assertions";
 import { InfraStack } from "../lib/infra-stack";
+import { beforeEach, describe, it } from 'vitest';
 
 describe('Website is Created', () => {
 
