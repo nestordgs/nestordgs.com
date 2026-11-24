@@ -20,7 +20,7 @@
     "babel-plugin-macros": "^3.1.0",
     "css-select": "^4.0.0",
     "dayjs": "^1.11.7",
-    "i18next": "^22.4.9",
+    "i18next": "^27.2.6",
     "jest-canvas-mock": "^2.4.0",
     "json-loader": "^0.5.7",
     "posthog-js": "^1.366.2",
